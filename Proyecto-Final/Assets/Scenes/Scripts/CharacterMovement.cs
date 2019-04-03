@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+    float normalSpeed;
+    bool isOnPlatform;
+    Vector3 position;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        position = transform.position;
     }
 
     // Update is called once per frame
@@ -15,4 +19,14 @@ public class CharacterMovement : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Platform")
+        {
+            isOnPlatform = false;
+        }
+    }
+
+    
 }

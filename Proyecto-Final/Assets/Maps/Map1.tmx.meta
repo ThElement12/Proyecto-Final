@@ -1,0 +1,37 @@
+fileFormatVersion: 2
+guid: 135cbc0ce8b9128408f072703dd38fef
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: _MapPrfab/Map1
+    100002: _MapPrfab/Map1/Tile Layer 1
+    400000: _MapPrfab/Map1/Transform
+    400002: _MapPrfab/Map1/Tile Layer 1/Transform
+    11400000: _MapPrfab/Map1/MonoBehaviour-SuperTiled2Unity.SuperMap
+    11400002: _MapPrfab/Map1/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400004: _MapPrfab/Map1/Tile Layer 1/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400006: _MapPrfab/Map1/Tile Layer 1/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400008: _MapPrfab/Map1/Tile Layer 1/MonoBehaviour-SuperTiled2Unity.TilemapData
+    11400010: _superAsset
+    100100000: _MapPrfab
+    2569400265252428796: _MapPrfab/Map1/Grid
+    3664157343022684176: _MapPrfab/Map1/Tile Layer 1/TilemapRenderer
+    8195094279510102542: _MapPrfab/Map1/Tile Layer 1/Tilemap
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  missingFiles: []
+  errors: []
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 2
+  tilesAsObjects: 0
+  importSorting: 0
+  isIsometric: 0
+  customImporterClassName: 
+  internalTilesets: []

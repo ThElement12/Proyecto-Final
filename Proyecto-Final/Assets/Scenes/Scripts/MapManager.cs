@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    public GameObject enemyGen, fightingWall, lastWall, firstWall, nullWall;
+    public GameObject enemyGen, fightingWallenter, fightingWallexit, lastWall, firstWall, nullWall;
     public GameObject floor, firstFloor, lastFloor;
     public float floorsize;
 
@@ -18,10 +18,10 @@ public class MapManager : MonoBehaviour
         cellPrefabs = new Dictionary<char, GameObject>
         {
             {'_', floor },
-            {'|', enemyGen },
             {'-', firstFloor },
             {'/', lastFloor },
-            {'*', fightingWall },
+            {'*', fightingWallenter },
+            {'E', fightingWallexit },
             {';', lastWall },
             {'f', firstWall },
             {' ', nullWall }
@@ -38,15 +38,40 @@ public class MapManager : MonoBehaviour
     }
     private void LoadMap()
     {
-        int j, i = 0;
+        int j, i = 0, count = 0;
+        float position = floorsize;
         foreach(XmlNode actualRow in level.SelectNodes("//Level/Map/Row"))
         {
             j = 0;
             i--;
             foreach(char actualCell in actualRow.InnerText)
             {
-                _newCell = Instantiate(cellPrefabs[actualCell], new Vector3(j, i, cellPrefabs[actualCell].transform.position.z), Quaternion.identity);
-                _newCell.transform.Translate(new Vector3(floorsize*j, 0));
+                position = count * floorsize;
+                
+                if (cellPrefabs[actualCell] == firstWall || cellPrefabs[actualCell] == nullWall || cellPrefabs[actualCell] == lastWall)
+                {
+                    _newCell = Instantiate(cellPrefabs[actualCell], new Vector3(j, i, cellPrefabs[actualCell].transform.position.z), Quaternion.identity);
+                    _newCell.transform.Translate(new Vector3(_newCell.transform.position.x + 2.53f + position, _newCell.transform.position.y - 5f));
+                }
+
+                else if(cellPrefabs[actualCell] == fightingWallenter)
+                {
+                    _newCell = Instantiate(cellPrefabs[actualCell], new Vector3(j, i, cellPrefabs[actualCell].transform.position.z), Quaternion.identity);
+                    _newCell.transform.Translate(new Vector3(_newCell.transform.position.x + position - 21,_newCell.transform.position.y - 5f));
+                    Instantiate(enemyGen, new Vector3(_newCell.transform.position.x + 1, _newCell.transform.position.y), Quaternion.identity);
+                }
+                else if(cellPrefabs[actualCell] == fightingWallexit)
+                {
+                    _newCell = Instantiate(cellPrefabs[actualCell], new Vector3(j, i, cellPrefabs[actualCell].transform.position.z), Quaternion.identity);
+                    _newCell.transform.Translate(new Vector3(_newCell.transform.position.x + position + 21, _newCell.transform.position.y - 5f));
+                    Instantiate(enemyGen, new Vector3(_newCell.transform.position.x - 1, _newCell.transform.position.y), Quaternion.identity);
+                }
+                else
+                {
+                    _newCell = Instantiate(cellPrefabs[actualCell], new Vector3(j, i, cellPrefabs[actualCell].transform.position.z), Quaternion.identity);
+                    _newCell.transform.Translate(new Vector3(floorsize * j, 0));
+                }
+                count++;
                 j++;
             }
         }

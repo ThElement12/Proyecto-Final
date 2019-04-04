@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - wallEnter
+  - wallExit
+  - firstWall
+  - lastWall
   layers:
   - Default
   - TransparentFX

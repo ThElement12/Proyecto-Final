@@ -12,11 +12,19 @@ public class CharacterMovement : MonoBehaviour
     Vector3 position;
     int jump = 1;
 
+
+    Animator _Animator;
+
+
+    bool isAttacking = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
         normalSpeed.x = 5;
         position = transform.position;
+        _Animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +39,16 @@ public class CharacterMovement : MonoBehaviour
             normalSpeed.y += aceleration.y * Time.deltaTime;
         }
         position *= Time.deltaTime;
+        if (Input.GetKey(KeyCode.X))
+        {
+            isAttacking = true;
+        }
+        else
+        {
+            isAttacking = false;
+        }
+
+
         if (Input.GetButtonDown("Jump") && jump == 1)
         {
             jump = 0;
@@ -38,7 +56,10 @@ public class CharacterMovement : MonoBehaviour
             normalSpeed.y = 170;
             aceleration.y = Physics.gravity.y;
         }
+
+        _Animator.SetBool("isAttacking", isAttacking);
         transform.Translate(position);
+        
     }
 
     private void OnTriggerEnter(Collider other)

@@ -16,21 +16,24 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         normalSpeed.x = 5;
-        position = transform.position;
+        position.x = transform.position.x;
+        position.y = transform.position.y;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         if(!noCollision)
-            position.x = Input.GetAxis("Horizontal") * normalSpeed.x;
+          //  position.x = Input.GetAxis("Horizontal") * normalSpeed.x;
 
         if (!isOnPlatform)
         {
             position.y = normalSpeed.y * Time.deltaTime + aceleration.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
-            normalSpeed.y += aceleration.y * Time.deltaTime;
+            normalSpeed.y += aceleration.y * Time.deltaTime; 
         }
-        position *= Time.deltaTime;
+
+
         if (Input.GetButtonDown("Jump") && jump == 1)
         {
             jump = 0;
@@ -38,7 +41,8 @@ public class CharacterMovement : MonoBehaviour
             normalSpeed.y = 170;
             aceleration.y = Physics.gravity.y;
         }
-        transform.Translate(position);
+
+        transform.Translate(normalSpeed * Input.GetAxis("Horizontal"));
     }
 
     private void OnTriggerEnter(Collider other)

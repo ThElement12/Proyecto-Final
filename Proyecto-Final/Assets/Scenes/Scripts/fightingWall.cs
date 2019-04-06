@@ -31,7 +31,7 @@ public class fightingWall : MonoBehaviour
         if (other.tag == "Player")
         {
 
-            if ((tag == "wallEnter" || tag == "firstWall")&& Input.GetKeyDown(KeyCode.RightArrow))
+            if ((tag == "wallEnter" || tag == "firstWall") && Input.GetKeyDown(KeyCode.RightArrow))
             {
                 other.gameObject.GetComponent<CharacterMovement>().noCollision = false;
             }

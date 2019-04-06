@@ -746,21 +746,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca727ff383a1514c923b2c5859d8efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGen: {fileID: 5053496366722506060, guid: 86fb659888201124fbdccf80cc9ab573,
+  fightingFloor: {fileID: 8961506272020110115, guid: de51a38c7f4d1d942bb5ed7c60c9e4f6,
     type: 3}
-  fightingWallenter: {fileID: 6974731426254948130, guid: 26ffb4a1e0315134f9aa1cad2a6433fa,
+  firstFloor: {fileID: 8152809390978804220, guid: 63cf0cdd53d40dd4090b684e31914899,
     type: 3}
-  fightingWallexit: {fileID: 2200458902890189526, guid: ea67b642b28b0c44cb6554efc189a5ad,
+  lastFloor: {fileID: 5972498009963713268, guid: a27c8e083b6831342aa1c6d91ff83a4e,
     type: 3}
-  lastWall: {fileID: 2396927418608041884, guid: 5a29339c3027a8c458cc6b5ec1690d6a,
-    type: 3}
-  firstWall: {fileID: 1829895356726312271, guid: a1f8f3f6a5b5e3a4b9994bd3785566e1,
-    type: 3}
-  nullWall: {fileID: 6257395459722683288, guid: 72af1cd60af8bcf478a0ba50277c01c2,
-    type: 3}
-  floor: {fileID: 461928637, guid: d50068c35c96d7a46b702dfea2788f36, type: 3}
-  firstFloor: {fileID: 461928637, guid: d50068c35c96d7a46b702dfea2788f36, type: 3}
-  lastFloor: {fileID: 461928637, guid: d50068c35c96d7a46b702dfea2788f36, type: 3}
+  normalFloor: {fileID: 461928637, guid: d50068c35c96d7a46b702dfea2788f36, type: 3}
   floorsize: 22.5
 --- !u!20 &519420031
 Camera:

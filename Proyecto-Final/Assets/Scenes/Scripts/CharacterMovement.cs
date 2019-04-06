@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
     public bool noCollision = false;
     public float attackDamage = 2.0f;
     public float life = 100;
+    public GameObject Fuego;
 
     Vector3 aceleration = new Vector3(0, Physics.gravity.y);
     Vector3 jumpforce;
@@ -15,10 +16,7 @@ public class CharacterMovement : MonoBehaviour
     Vector3 position;
     int jump = 1;
     Animator _Animator;
-    bool isAttacking = false;
-    bool isJumping = false;
-    bool isRunning = false;
-    bool isJutsing = false;
+
 
 
     // Start is called before the first frame update
@@ -37,41 +35,44 @@ public class CharacterMovement : MonoBehaviour
            position.x = Input.GetAxis("Horizontal") * normalSpeed.x;
            if(Input.GetAxis("Horizontal") != 0)
             {
-                isRunning = true;
+                _Animator.SetBool("isRunning", true);
             }
             else
             {
-                isRunning = false;
+                _Animator.SetBool("isRunning", false);
             }
         }
             
 
         if (!isOnPlatform)
         {
-            isJumping = true;
+            _Animator.SetBool("isJumping", true);
             position.y = normalSpeed.y * Time.deltaTime + aceleration.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
             normalSpeed.y += aceleration.y * Time.deltaTime;
         }
         else
         {
-            isJumping = false;
+            _Animator.SetBool("isJumping", false);
         }
         position *= Time.deltaTime;
         if (Input.GetKey(KeyCode.X))
         {
-            isAttacking = true;
+            _Animator.SetBool("isAttacking", true);
         }
         else
         {
-            isAttacking = false;
+            _Animator.SetBool("isAttacking", false);
         }
         if (Input.GetKey(KeyCode.C))
         {
-            isJutsing = true;
+            _Animator.SetBool("isJutsing", true);
+            Invoke("Instanse", 0.35f);
+            
+            
         }
         else
         {
-            isJutsing = false;
+            _Animator.SetBool("isJutsing", false);
         }
 
 
@@ -83,11 +84,13 @@ public class CharacterMovement : MonoBehaviour
             aceleration.y = Physics.gravity.y;
         }
 
-        _Animator.SetBool("isAttacking", isAttacking);
-        _Animator.SetBool("isJumping", isJumping);
-        _Animator.SetBool("isRunning", isRunning);
+
         transform.Translate(position);
         
+    }
+    void Instanse()
+    {
+        Instantiate(Fuego, new Vector3(transform.position.x +0.44f,transform.position.y,transform.position.z), Quaternion.identity);
     }
 
     private void OnTriggerEnter(Collider other)

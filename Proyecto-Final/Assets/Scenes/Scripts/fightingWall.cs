@@ -28,14 +28,18 @@ public class fightingWall : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (tag == "wallEnter" || tag == "firstWall" && Input.GetKeyDown(KeyCode.RightArrow))
+        if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<CharacterMovement>().noCollision = false;
-        }
 
-        else if (tag == "wallExit" || tag == "lastWall" && Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            other.gameObject.GetComponent<CharacterMovement>().noCollision = false;
+            if (tag == "wallEnter" || tag == "firstWall" && Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                other.gameObject.GetComponent<CharacterMovement>().noCollision = false;
+            }
+
+            else if (tag == "wallExit" || tag == "lastWall" && Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                other.gameObject.GetComponent<CharacterMovement>().noCollision = false;
+            }
         }
     }
 }

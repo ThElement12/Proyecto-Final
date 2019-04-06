@@ -5,17 +5,16 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public bool noCollision = false;
+    public float attackDamage = 2.0f;
+    public float life = 100;
+
     Vector3 aceleration = new Vector3(0, Physics.gravity.y);
     Vector3 jumpforce;
     Vector3 normalSpeed = Vector3.zero;
     bool isOnPlatform = false;
     Vector3 position;
     int jump = 1;
-
-
     Animator _Animator;
-
-
     bool isAttacking = false;
     bool isJumping = false;
     bool isRunning = false;

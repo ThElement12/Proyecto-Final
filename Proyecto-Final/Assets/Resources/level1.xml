@@ -2,10 +2,10 @@
 <Level number = "1">
 	<Map>
 		<Row>
-		<![CDATA[f  * E  * E * E ;]]>
+		<![CDATA[f*E*E*E;]]>
 		</Row>
 		<Row>
-		<![CDATA[-_______________/]]>
+		<![CDATA[-______/]]>
 		</Row>
 	</Map>
 </Level>

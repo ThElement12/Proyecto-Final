@@ -17,6 +17,9 @@ public class CharacterMovement : MonoBehaviour
 
 
     bool isAttacking = false;
+    bool isJumping = false;
+    bool isRunning = false;
+    bool isJutsing = false;
 
 
     // Start is called before the first frame update
@@ -24,19 +27,35 @@ public class CharacterMovement : MonoBehaviour
     {
         normalSpeed.x = 5;
         position = transform.position;
-        _Animator = transform.GetChild(0).GetComponent<Animator>();
+        _Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!noCollision)
-            position.x = Input.GetAxis("Horizontal") * normalSpeed.x;
+        {
+           position.x = Input.GetAxis("Horizontal") * normalSpeed.x;
+           if(Input.GetAxis("Horizontal") != 0)
+            {
+                isRunning = true;
+            }
+            else
+            {
+                isRunning = false;
+            }
+        }
+            
 
         if (!isOnPlatform)
         {
+            isJumping = true;
             position.y = normalSpeed.y * Time.deltaTime + aceleration.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
             normalSpeed.y += aceleration.y * Time.deltaTime;
+        }
+        else
+        {
+            isJumping = false;
         }
         position *= Time.deltaTime;
         if (Input.GetKey(KeyCode.X))
@@ -46,6 +65,14 @@ public class CharacterMovement : MonoBehaviour
         else
         {
             isAttacking = false;
+        }
+        if (Input.GetKey(KeyCode.C))
+        {
+            isJutsing = true;
+        }
+        else
+        {
+            isJutsing = false;
         }
 
 
@@ -58,6 +85,8 @@ public class CharacterMovement : MonoBehaviour
         }
 
         _Animator.SetBool("isAttacking", isAttacking);
+        _Animator.SetBool("isJumping", isJumping);
+        _Animator.SetBool("isRunning", isRunning);
         transform.Translate(position);
         
     }

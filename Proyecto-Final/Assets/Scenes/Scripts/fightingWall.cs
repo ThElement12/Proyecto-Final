@@ -31,12 +31,12 @@ public class fightingWall : MonoBehaviour
         if (other.tag == "Player")
         {
 
-            if (tag == "wallEnter" || tag == "firstWall" && Input.GetKeyDown(KeyCode.RightArrow))
+            if ((tag == "wallEnter" || tag == "firstWall")&& Input.GetKeyDown(KeyCode.RightArrow))
             {
                 other.gameObject.GetComponent<CharacterMovement>().noCollision = false;
             }
 
-            else if (tag == "wallExit" || tag == "lastWall" && Input.GetKeyDown(KeyCode.LeftArrow))
+            else if ((tag == "wallExit" || tag == "lastWall") && Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 other.gameObject.GetComponent<CharacterMovement>().noCollision = false;
             }

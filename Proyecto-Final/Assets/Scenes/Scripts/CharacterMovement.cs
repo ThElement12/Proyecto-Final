@@ -17,6 +17,8 @@ public class CharacterMovement : MonoBehaviour
     int jump = 1;
     Animator _Animator;
 
+    float SkillTime = 0;
+
 
 
     // Start is called before the first frame update
@@ -41,6 +43,14 @@ public class CharacterMovement : MonoBehaviour
             {
                 _Animator.SetBool("isRunning", false);
             }
+           if(Input.GetAxis("Horizontal") < 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if(Input.GetAxis("Horizontal") > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
         }
             
 
@@ -63,8 +73,9 @@ public class CharacterMovement : MonoBehaviour
         {
             _Animator.SetBool("isAttacking", false);
         }
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.C) && SkillTime <= 0)
         {
+            SkillTime = 3;
             _Animator.SetBool("isJutsing", true);
             Invoke("Instanse", 0.35f);
             
@@ -86,11 +97,13 @@ public class CharacterMovement : MonoBehaviour
 
 
         transform.Translate(position);
+        SkillTime -= Time.deltaTime;
         
     }
     void Instanse()
     {
-        Instantiate(Fuego, new Vector3(transform.position.x +0.44f,transform.position.y,transform.position.z), Quaternion.identity);
+        Instantiate(Fuego, new Vector3(GetComponent<SpriteRenderer>().flipX ? transform.position.x - 0.44f : transform.position.x + 0.44f,
+            transform.position.y,transform.position.z), Quaternion.identity);
     }
 
     private void OnTriggerEnter(Collider other)

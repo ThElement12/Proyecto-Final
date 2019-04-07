@@ -6,6 +6,16 @@ public class fightingWall : MonoBehaviour
 {
     public static bool inFight = false;
     public bool fightnotOver = true;
+    public static GameObject wall;
+    
+
+    private void Update()
+    {
+        if(GameObject.FindGameObjectWithTag("Enemy") == null && GameObject.FindGameObjectWithTag("BigEnemy") == null)
+        {
+            inFight = false;
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {
@@ -13,7 +23,12 @@ public class fightingWall : MonoBehaviour
         {
             if(other.gameObject.tag == "Player")
             {
+                wall = gameObject;
                 inFight = true;
+                for(int i= 0; i < 2;i++)
+                {
+                    wall.transform.GetChild(i).GetComponent<EnemyGen>().isGenerating = true;
+                }
             }
         }
     }

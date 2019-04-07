@@ -9,6 +9,8 @@ TagManager:
   - wallExit
   - firstWall
   - lastWall
+  - BigEnemy
+  - NormalEnemy
   layers:
   - Default
   - TransparentFX

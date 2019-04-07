@@ -21,7 +21,7 @@ public class EnemyGen : MonoBehaviour
     {
         if (isGenerating == true)
         {
-            Invoke("enemyInstance", 1);
+            Invoke("enemyInstance", 3);
         }
         else
             return;

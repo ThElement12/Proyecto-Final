@@ -11,7 +11,7 @@ public class fightingWall : MonoBehaviour
 
     private void Update()
     {
-        if(GameObject.FindGameObjectWithTag("Enemy") == null && GameObject.FindGameObjectWithTag("BigEnemy") == null)
+        if(GameObject.FindGameObjectWithTag("NormalEnemy") == null && GameObject.FindGameObjectWithTag("BigEnemy") == null)
         {
             inFight = false;
         }

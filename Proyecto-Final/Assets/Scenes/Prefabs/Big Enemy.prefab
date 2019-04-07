@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3336901441713609515}
   - component: {fileID: 3336901441713609514}
   - component: {fileID: 4624098811703422045}
-  - component: {fileID: 4181126687210685132}
   m_Layer: 0
   m_Name: Big Enemy
   m_TagString: Untagged
@@ -30,7 +29,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.71, y: -7.12, z: -7}
   m_LocalScale: {x: 6.685, y: 6.685, z: 6.685}
-  m_Children: []
+  m_Children:
+  - {fileID: 2332981379148193404}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -114,16 +114,47 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3158977, y: 0.5958416, z: 0.19999999}
   m_Center: {x: 0.033286605, y: -0.07544976, z: 0}
---- !u!65 &4181126687210685132
+--- !u!1 &5146736462107794173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2332981379148193404}
+  - component: {fileID: 975570600098076429}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2332981379148193404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146736462107794173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.083, y: 0.239, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3336901441713609512}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &975570600098076429
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3336901441713609525}
+  m_GameObject: {fileID: 5146736462107794173}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2199403, y: 0.23213103, z: 0.2}
-  m_Center: {x: 0.077668905, y: 0.29736078, z: 0}
+  m_Size: {x: 0.23204812, y: 0.21010618, z: 1}
+  m_Center: {x: 0.00000021398824, y: 0.05485423, z: 0}

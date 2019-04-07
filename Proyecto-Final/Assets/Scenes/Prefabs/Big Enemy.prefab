@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3336901441713609512}
   - component: {fileID: 3336901441713609515}
   - component: {fileID: 3336901441713609514}
+  - component: {fileID: 4624098811703422045}
+  - component: {fileID: 4181126687210685132}
   m_Layer: 0
   m_Name: Big Enemy
   m_TagString: Untagged
@@ -99,3 +101,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &4624098811703422045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336901441713609525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3158977, y: 0.5958416, z: 0.19999999}
+  m_Center: {x: 0.033286605, y: -0.07544976, z: 0}
+--- !u!65 &4181126687210685132
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336901441713609525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2199403, y: 0.23213103, z: 0.2}
+  m_Center: {x: 0.077668905, y: 0.29736078, z: 0}

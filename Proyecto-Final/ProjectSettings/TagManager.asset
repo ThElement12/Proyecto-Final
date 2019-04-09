@@ -15,6 +15,7 @@ TagManager:
   - Wolf Enemy
   - Range Enemy
   - FireBall
+  - Sword
   layers:
   - Default
   - TransparentFX

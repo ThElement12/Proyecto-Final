@@ -20,8 +20,8 @@ public class EnemyScripts : MonoBehaviour
     private void Update()
     {
         step = speed * Time.deltaTime;
-        if(transform.position != attackPosition)
-            transform.position = Vector3.MoveTowards(transform.position, Target.position, step);
+        if (transform.position != attackPosition)
+            transform.position = new Vector3(Vector3.MoveTowards(transform.position, Target.position, step).x, transform.position.y, transform.position.z);
 
 
     }

@@ -19,9 +19,10 @@ public class EnemyGen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isGenerating == true)
+        if (isGenerating == true && EnemyCount > 0)
         {
-            Invoke("enemyInstance", 3);
+            enemyInstance();
+            //Invoke("enemyInstance", 0.5f);
             EnemyCount--;
         }
         else
@@ -34,14 +35,14 @@ public class EnemyGen : MonoBehaviour
         {
             isGenerating = false;
         }
-        if(EnemyCount < 2)
+        if(EnemyCount > 3)
         {
-            Instantiate(BigEnemy, new Vector3(transform.position.x + 1, transform.position.y + 1), Quaternion.identity);
+            Instantiate(NormalEnemy, new Vector3(transform.position.x + 1, transform.position.y + 1), Quaternion.identity);
         }
 
         else
         {
-            Instantiate(NormalEnemy, new Vector3(transform.position.x + 1, transform.position.y + 1), Quaternion.identity);
+            Instantiate(BigEnemy, new Vector3(transform.position.x + 1, transform.position.y + 1), Quaternion.identity);
         }
         
     }

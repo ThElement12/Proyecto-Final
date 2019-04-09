@@ -27,7 +27,7 @@ public class FireControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if(other.tag == "Enemy" || other.tag == "bigEnemy" || other.tag == "normalEnemy")
         {
             ///Quitarle vida al enemigo
             Destroy(gameObject);

@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 8502273543185975274}
   - component: {fileID: 8502273543185975275}
   - component: {fileID: 8502273543185975272}
+  - component: {fileID: 1938347362}
   m_Layer: 0
   m_Name: Normal Enemie
   m_TagString: NormalEnemy
@@ -175,3 +176,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3153656, y: 2.1217556, z: 0.19999999}
   m_Center: {x: -0.2568223, y: -0.20910436, z: 0}
+--- !u!114 &1938347362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502273543185975273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781412cd60463b9409d82edcc9d62ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100
+  attackDamage: 1
+  attackPosition: {x: 0, y: 0, z: 0}

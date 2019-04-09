@@ -37,12 +37,12 @@ public class EnemyGen : MonoBehaviour
         }
         if(EnemyCount > 3)
         {
-            newEnemy = Instantiate(NormalEnemy, new Vector3(transform.position.x + 1, NormalEnemy.transform.position.y + 1), Quaternion.identity);
+            newEnemy = Instantiate(NormalEnemy, new Vector3(transform.position.x + 1, NormalEnemy.transform.position.y + 1, -7), Quaternion.identity);
         }
 
         else
         {
-            newEnemy = Instantiate(BigEnemy, new Vector3(transform.position.x + 1, BigEnemy.transform.position.y + 1), Quaternion.identity);
+            newEnemy = Instantiate(BigEnemy, new Vector3(transform.position.x + 1, BigEnemy.transform.position.y + 1, -7), Quaternion.identity);
         }
         
     }

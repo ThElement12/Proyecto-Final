@@ -11,6 +11,10 @@ TagManager:
   - lastWall
   - BigEnemy
   - NormalEnemy
+  - Flying Enemy
+  - Wolf Enemy
+  - Range Enemy
+  - FireBall
   layers:
   - Default
   - TransparentFX

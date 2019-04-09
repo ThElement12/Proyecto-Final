@@ -99,7 +99,7 @@ public class CharacterMovement : MonoBehaviour
             aceleration.y = Physics.gravity.y;
         }
 
-
+        Camera.main.transform.position = new Vector3(transform.position.x,Camera.main.transform.position.y, Camera.main.transform.position.z);
         transform.Translate(position);
         SkillTime -= Time.deltaTime;
         

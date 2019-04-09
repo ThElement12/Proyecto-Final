@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyGen : MonoBehaviour
 {
-    
+    GameObject player, newEnemy;
     public GameObject BigEnemy, NormalEnemy;
     public bool isGenerating = false;
     bool isFight;
@@ -13,7 +13,7 @@ public class EnemyGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -37,12 +37,12 @@ public class EnemyGen : MonoBehaviour
         }
         if(EnemyCount > 3)
         {
-            Instantiate(NormalEnemy, new Vector3(transform.position.x + 1, transform.position.y + 1), Quaternion.identity);
+            newEnemy = Instantiate(NormalEnemy, new Vector3(transform.position.x + 1, NormalEnemy.transform.position.y + 1), Quaternion.identity);
         }
 
         else
         {
-            Instantiate(BigEnemy, new Vector3(transform.position.x + 1, transform.position.y + 1), Quaternion.identity);
+            newEnemy = Instantiate(BigEnemy, new Vector3(transform.position.x + 1, BigEnemy.transform.position.y + 1), Quaternion.identity);
         }
         
     }

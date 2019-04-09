@@ -35,7 +35,7 @@ public class fightingWall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (inFight)
+        if (inFight && other.tag == "Player")
         {
             other.gameObject.GetComponent<CharacterMovement>().noCollision = true;
         }

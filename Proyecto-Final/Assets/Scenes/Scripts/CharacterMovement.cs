@@ -16,7 +16,7 @@ public class CharacterMovement : MonoBehaviour
     Vector3 position;
     int jump = 1;
     Animator _Animator;
-
+    
     float SkillTime = 0;
 
 
@@ -27,6 +27,8 @@ public class CharacterMovement : MonoBehaviour
         normalSpeed.x = 5;
         position = transform.position;
         _Animator = GetComponent<Animator>();
+
+        
     }
 
     // Update is called once per frame
@@ -34,6 +36,8 @@ public class CharacterMovement : MonoBehaviour
     {
         if (!noCollision)
         {
+            
+         
            position.x = Input.GetAxis("Horizontal") * normalSpeed.x;
            if(Input.GetAxis("Horizontal") != 0)
             {

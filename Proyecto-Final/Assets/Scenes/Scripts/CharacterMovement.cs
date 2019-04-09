@@ -37,24 +37,24 @@ public class CharacterMovement : MonoBehaviour
         if (!noCollision)
         {
             
+            if(Input.GetAxis("Horizontal") != 0)
+                position.x = normalSpeed.x;
+            
          
-           position.x = Input.GetAxis("Horizontal") * normalSpeed.x;
+          
+
            if(Input.GetAxis("Horizontal") != 0)
-            {
                 _Animator.SetBool("isRunning", true);
-            }
-            else
-            {
+            
+           else
                 _Animator.SetBool("isRunning", false);
-            }
+            
            if(Input.GetAxis("Horizontal") < 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else if(Input.GetAxis("Horizontal") > 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = false;
-            }
+                transform.rotation = new Quaternion(0, -179.99f, 0, 0);
+          
+           else if(Input.GetAxis("Horizontal") > 0)
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+          
         }
             
 
@@ -65,30 +65,27 @@ public class CharacterMovement : MonoBehaviour
             normalSpeed.y += aceleration.y * Time.deltaTime;
         }
         else
-        {
             _Animator.SetBool("isJumping", false);
-        }
+       
         position *= Time.deltaTime;
+
         if (Input.GetKey(KeyCode.X))
-        {
             _Animator.SetBool("isAttacking", true);
-        }
+        
         else
-        {
-            _Animator.SetBool("isAttacking", false);
-        }
+           _Animator.SetBool("isAttacking", false);
+        
         if (Input.GetKey(KeyCode.C) && SkillTime <= 0)
         {
             SkillTime = 3;
             _Animator.SetBool("isJutsing", true);
-            Invoke("Instanse", 0.35f);
+            Invoke("Instance", 0.35f);
             
             
         }
         else
-        {
             _Animator.SetBool("isJutsing", false);
-        }
+        
 
 
         if (Input.GetButtonDown("Jump") && jump == 1)
@@ -104,7 +101,7 @@ public class CharacterMovement : MonoBehaviour
         SkillTime -= Time.deltaTime;
         
     }
-    void Instanse()
+    void Instance()
     {
         Instantiate(Fuego, new Vector3(GetComponent<SpriteRenderer>().flipX ? transform.position.x - 0.44f : transform.position.x + 0.44f,
             transform.position.y,transform.position.z), Quaternion.identity);

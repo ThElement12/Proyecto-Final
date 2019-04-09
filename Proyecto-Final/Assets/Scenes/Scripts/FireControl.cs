@@ -5,13 +5,13 @@ using UnityEngine;
 public class FireControl : MonoBehaviour
 {
     public Vector3 velocidad = new Vector3(8f,0);
-    SpriteRenderer Jugador;
+    Transform Jugador;
 
     // Start is called before the first frame update
     void Start()
     {
-        Jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
-        if (Jugador.flipX)
+        Jugador = GameObject.FindGameObjectWithTag("Player").transform;
+        if (Jugador.rotation.y < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
             velocidad *= -1;

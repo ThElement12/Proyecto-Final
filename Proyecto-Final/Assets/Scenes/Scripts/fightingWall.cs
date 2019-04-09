@@ -38,6 +38,7 @@ public class fightingWall : MonoBehaviour
         if (inFight && other.tag == "Player")
         {
             other.gameObject.GetComponent<CharacterMovement>().noCollision = true;
+            
         }
     }
 

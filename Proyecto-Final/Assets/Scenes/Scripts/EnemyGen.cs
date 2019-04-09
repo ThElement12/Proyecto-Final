@@ -21,7 +21,8 @@ public class EnemyGen : MonoBehaviour
     {
         if (isGenerating == true)
         {
-            Invoke("enemyInstance", 3   );
+            Invoke("enemyInstance", 3);
+            EnemyCount--;
         }
         else
             return;
@@ -33,7 +34,7 @@ public class EnemyGen : MonoBehaviour
         {
             isGenerating = false;
         }
-        if(EnemyCount < 3)
+        if(EnemyCount < 2)
         {
             Instantiate(BigEnemy, new Vector3(transform.position.x + 1, transform.position.y + 1), Quaternion.identity);
         }
@@ -42,6 +43,6 @@ public class EnemyGen : MonoBehaviour
         {
             Instantiate(NormalEnemy, new Vector3(transform.position.x + 1, transform.position.y + 1), Quaternion.identity);
         }
-        EnemyCount--;
+        
     }
 }

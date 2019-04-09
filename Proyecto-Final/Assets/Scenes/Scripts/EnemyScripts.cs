@@ -37,14 +37,14 @@ public class EnemyScripts : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipX = false;
         }
         step = speed * Time.deltaTime;
-        if (transform.position.x - Target.transform.position.x != attackPosition.x || transform.position.x - Target.transform.position.x != -attackPosition.x)
+        if (transform.position.x - Target.transform.position.x > attackPosition.x || transform.position.x - Target.transform.position.x < -attackPosition.x)
         {
             transform.position = new Vector3(Vector3.MoveTowards(transform.position, Target.position, step).x, transform.position.y, transform.position.z);
-            //GetComponent<Animator>().SetBool("", false);
+            GetComponent<Animator>().SetBool("isAttacking", false);
         }
-        else if (transform.position.x - Target.transform.position.x != attackPosition.x || transform.position.x - Target.transform.position.x != -attackPosition.x)
+        else if (transform.position.x - Target.transform.position.x <= attackPosition.x || transform.position.x - Target.transform.position.x >= -attackPosition.x)
         {
-            //GetComponent<Animator>().SetBool("", true);
+            GetComponent<Animator>().SetBool("isAttacking", true);
         }
 
     }

@@ -10,6 +10,7 @@ public class EnemyGen : MonoBehaviour
     bool isFight;
     int EnemyCount = 7;
     GameObject actualwall;
+    int count = 30;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,15 @@ public class EnemyGen : MonoBehaviour
     {
         if (isGenerating == true && EnemyCount > 0)
         {
-            //enemyInstance();
-            Invoke("enemyInstance", 0.5f);
-            EnemyCount--;
+            if (count == 0)
+            {
+                count = 50;
+                enemyInstance();
+            }
+            else
+                count--;
+            //Invoke("enemyInstance", 0.5f);
+            //EnemyCount--;
         }
         else
             return;
@@ -44,6 +51,6 @@ public class EnemyGen : MonoBehaviour
         {
             newEnemy = Instantiate(BigEnemy, new Vector3(transform.position.x + 1, BigEnemy.transform.position.y, -7), Quaternion.identity);
         }
-        
+        EnemyCount--;
     }
 }

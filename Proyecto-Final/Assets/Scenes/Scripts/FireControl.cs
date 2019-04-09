@@ -11,14 +11,17 @@ public class FireControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Jugador = GameObject.FindGameObjectWithTag("Player").transform;
-        if (Jugador.rotation.y < 0)
+        if(tag == "FireBall")
         {
-            GetComponent<SpriteRenderer>().flipX = true;
-            velocidad *= -1;
+            Jugador = GameObject.FindGameObjectWithTag("Player").transform;
+            if (Jugador.rotation.y < 0)
+            {
+             GetComponent<SpriteRenderer>().flipX = true;
+             velocidad *= -1;
+            }
+            Damage = Jugador.GetComponent<CharacterMovement>().attackDamage * 2;
         }
-
-
+        
     }
 
     // Update is called once per frame
@@ -28,10 +31,14 @@ public class FireControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy" || other.tag == "bigEnemy" || other.tag == "normalEnemy")
+        if(tag == "FireBall")
         {
-            ///Quitarle vida al enemigo
-            Destroy(gameObject);
+            if(other.tag != "Player")
+            {
+                other.GetComponent<EnemyScripts>().life -= Damage;
+                Destroy(gameObject);
+                
+            }            
         }
     }
     private void OnBecameInvisible()

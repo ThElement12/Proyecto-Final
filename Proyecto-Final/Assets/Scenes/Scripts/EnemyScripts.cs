@@ -8,13 +8,15 @@ public class EnemyScripts : MonoBehaviour
     public float attackDamage = 1;
     public float attackDistance;
     public float speed;
+    public float myAttackPos;
 
+    int count = 40;
     Vector3 attackPosition;
     Transform Target;
     float step;
     private void Start()
     {
-        attackPosition = new Vector3(1, transform.position.y, transform.position.z);
+        attackPosition = new Vector3(myAttackPos, transform.position.y, transform.position.z);
         Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -44,7 +46,17 @@ public class EnemyScripts : MonoBehaviour
         }
         else if (transform.position.x - Target.transform.position.x <= attackPosition.x || transform.position.x - Target.transform.position.x >= -attackPosition.x)
         {
-            GetComponent<Animator>().SetBool("isAttacking", true);
+            if (count == 0)
+            {
+                count = 40;
+                GetComponent<Animator>().SetBool("isAttacking", true);
+            }
+
+            else
+            {
+                count--;
+                GetComponent<Animator>().SetBool("isAttacking", false);
+            }
         }
 
     }

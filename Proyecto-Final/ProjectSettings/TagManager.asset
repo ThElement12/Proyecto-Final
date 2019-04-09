@@ -17,6 +17,7 @@ TagManager:
   - FireBall
   - Sword
   - Weapon
+  - Enemies FireBall
   layers:
   - Default
   - TransparentFX

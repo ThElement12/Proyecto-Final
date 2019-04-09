@@ -9,8 +9,9 @@ public class CharacterMovement : MonoBehaviour
     public float life = 100;
     public GameObject Fuego;
 
-    Vector3 aceleration = new Vector3(0, Physics.gravity.y);
+   
     Vector3 jumpforce;
+    Vector3 aceleration = new Vector3(0.2f,Physics.gravity.x);
     Vector3 normalSpeed = Vector3.zero;
     bool isOnPlatform = false;
     Vector3 position;
@@ -30,7 +31,7 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         normalSpeed.x = 5;
-        position = transform.position;
+        position = Vector3.zero;
         _Animator = GetComponent<Animator>();
 
         
@@ -41,11 +42,18 @@ public class CharacterMovement : MonoBehaviour
     {
         if (!noCollision)
         {
-            
-            if(Input.GetAxis("Horizontal") != 0)
-                position.x = normalSpeed.x;
-            
-           if(Input.GetAxis("Horizontal") != 0)
+
+            if (Input.GetAxis("Horizontal") != 0)
+            {
+                normalSpeed.x = aceleration.x;    
+            } 
+            else
+                normalSpeed.x = 0;
+
+            position.x = normalSpeed.x;
+
+
+            if (Input.GetAxis("Horizontal") != 0)
                 _Animator.SetBool("isRunning", true);
             
            else
@@ -58,19 +66,21 @@ public class CharacterMovement : MonoBehaviour
                 transform.rotation = new Quaternion(0, 0, 0, 0);
           
         }
-            
+
 
         if (!isOnPlatform)
         {
             _Animator.SetBool("isJumping", true);
-            position.y = normalSpeed.y * Time.deltaTime + (aceleration.y * (Mathf.Pow(Time.deltaTime, 2) / 2));
+            position.y = normalSpeed.y * Time.deltaTime + aceleration.y * (Mathf.Pow(Time.deltaTime, 2));
+
             normalSpeed.y += aceleration.y * Time.deltaTime;
         }
         else
+        {   normalSpeed.y = 0;
             _Animator.SetBool("isJumping", false);
+        }
+            
        
-        position *= Time.deltaTime;
-
         if (Input.GetKey(KeyCode.X))
             _Animator.SetBool("isAttacking", true);
         
@@ -94,7 +104,7 @@ public class CharacterMovement : MonoBehaviour
         {
             jump = 0;
             isOnPlatform = false;
-            normalSpeed.y = 170;
+            normalSpeed.y = 9.8f;
             aceleration.y = Physics.gravity.y;
         }
 
@@ -113,6 +123,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (other.tag == "Platform")
         {
+            position.y = 0;
             normalSpeed.y = 0;
             aceleration.y = 0;
             isOnPlatform = true;

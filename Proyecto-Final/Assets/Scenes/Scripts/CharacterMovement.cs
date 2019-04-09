@@ -61,7 +61,7 @@ public class CharacterMovement : MonoBehaviour
         if (!isOnPlatform)
         {
             _Animator.SetBool("isJumping", true);
-            position.y = normalSpeed.y * Time.deltaTime + aceleration.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
+            position.y = normalSpeed.y * Time.deltaTime + (aceleration.y * (Mathf.Pow(Time.deltaTime, 2) / 2));
             normalSpeed.y += aceleration.y * Time.deltaTime;
         }
         else

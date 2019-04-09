@@ -190,4 +190,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   attackDamage: 1
-  attackPosition: {x: 0, y: 0, z: 0}
+  attackDistance: 0
+  speed: 2

@@ -6,23 +6,46 @@ public class EnemyScripts : MonoBehaviour
 {
     public float life = 100;
     public float attackDamage = 1;
-    public Vector3 attackPosition;
+    public float attackDistance;
+    public float speed;
 
+    Vector3 attackPosition;
     Transform Target;
-    //Vector3 position;
-    float speed = 2;
     float step;
     private void Start()
     {
+        attackPosition = new Vector3(1, transform.position.y, transform.position.z);
         Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
     {
-        step = speed * Time.deltaTime;
-        if (transform.position != attackPosition)
-            transform.position = new Vector3(Vector3.MoveTowards(transform.position, Target.position, step).x, transform.position.y, transform.position.z);
+        if(transform.position.x - Target.transform.position.x < 0)
+        {
+            if (tag == "NormalEnemy")
+                GetComponent<SpriteRenderer>().flipX = false;
 
+            else  
+                GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            if (tag == "NormalEnemy")
+                GetComponent<SpriteRenderer>().flipX = true;
+
+            else
+                GetComponent<SpriteRenderer>().flipX = false;
+        }
+        step = speed * Time.deltaTime;
+        if (transform.position.x - Target.transform.position.x != attackPosition.x || transform.position.x - Target.transform.position.x != -attackPosition.x)
+        {
+            transform.position = new Vector3(Vector3.MoveTowards(transform.position, Target.position, step).x, transform.position.y, transform.position.z);
+            //GetComponent<Animator>().SetBool("", false);
+        }
+        else if (transform.position.x - Target.transform.position.x != attackPosition.x || transform.position.x - Target.transform.position.x != -attackPosition.x)
+        {
+            //GetComponent<Animator>().SetBool("", true);
+        }
 
     }
 }

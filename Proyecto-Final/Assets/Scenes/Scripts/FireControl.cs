@@ -6,6 +6,7 @@ public class FireControl : MonoBehaviour
 {
     public Vector3 velocidad = new Vector3(8f,0);
     Transform Jugador;
+    public float Damage = 0;
 
     // Start is called before the first frame update
     void Start()

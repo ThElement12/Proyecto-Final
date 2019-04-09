@@ -16,6 +16,11 @@ public class CharacterMovement : MonoBehaviour
     Vector3 position;
     int jump = 1;
     Animator _Animator;
+
+    public float Vida = 100;
+    public float DamageReceived = 0;
+    public float Armor = 5;
+
     
     float SkillTime = 0;
 
@@ -40,9 +45,6 @@ public class CharacterMovement : MonoBehaviour
             if(Input.GetAxis("Horizontal") != 0)
                 position.x = normalSpeed.x;
             
-         
-          
-
            if(Input.GetAxis("Horizontal") != 0)
                 _Animator.SetBool("isRunning", true);
             
@@ -116,5 +118,16 @@ public class CharacterMovement : MonoBehaviour
             isOnPlatform = true;
             jump = 1;
         }
+        if(other.tag == "Weapon")
+        {
+           DamageReceived = other.gameObject.transform.parent.GetComponent<EnemyScripts>().attackDamage;
+            DamageReceived -= Armor * 0.20f;
+            if(DamageReceived > 0)
+            {
+                Vida -= DamageReceived;
+            }
+         
+        }
     }
+    
 }

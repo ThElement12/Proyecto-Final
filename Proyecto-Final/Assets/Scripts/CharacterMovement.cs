@@ -40,6 +40,8 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (!noCollision)
         {
 
@@ -124,7 +126,7 @@ public class CharacterMovement : MonoBehaviour
     }
     public void RecibirDamage(float damage)
     {
-        Vida -=Mathf.Clamp(damage - (damage * 0.02f * Armor),0,Vida);
+        Vida -=Mathf.Clamp(damage - (damage * 0.2f * Armor),0,Vida);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -140,11 +142,7 @@ public class CharacterMovement : MonoBehaviour
         if(other.tag == "Weapon")
         {
            DamageReceived = other.gameObject.transform.parent.GetComponent<EnemyScripts>().attackDamage;
-            DamageReceived -= Armor * 0.20f;
-            if(DamageReceived > 0)
-            {
-                Vida -= DamageReceived;
-            }
+           RecibirDamage(DamageReceived);
          
         }
     }

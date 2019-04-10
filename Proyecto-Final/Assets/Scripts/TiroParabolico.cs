@@ -27,7 +27,7 @@ public class TiroParabolico : MonoBehaviour
     {
         distancia = jugador.transform.position - transform.position;
         posicion.x = distancia.normalized.x * velocidad.x * Time.deltaTime;
-        posicion.y = velocidad.y * Time.deltaTime + Physics.gravity.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
+        posicion.y = (velocidad.y * Time.deltaTime) + Physics.gravity.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
 
 //     transform.LookAt(jugador.transform);
         transform.Translate(posicion);

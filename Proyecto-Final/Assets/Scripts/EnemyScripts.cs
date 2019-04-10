@@ -79,12 +79,24 @@ public class EnemyScripts : MonoBehaviour
 
             if (tag == "Flying Enemy")
             {
-                if (Attack && GameObject.FindGameObjectWithTag("Enemies FireBall") == null)
+                if (Attack && GameObject.FindGameObjectWithTag("Flying Enemy Fire") == null)
                 {
                     Instantiate(Fire, new Vector3(transform.position.x + 0.2f, transform.position.y, -7), Quaternion.identity);
+                    Fire.tag = gameObject.tag + " Fire";
                     Fire.GetComponent<TiroParabolico>().damage = attackDamage;
                     Attack = false;
                 }
+            }
+            else if(tag == "Range Enemy")
+            {
+                if (Attack && GameObject.FindGameObjectWithTag("Range Enemy Fire") == null)
+                {
+                    Instantiate(Fire, new Vector3(transform.position.x + 0.2f, transform.position.y, -7), Quaternion.identity);
+                    Fire.tag = gameObject.tag + " Fire";
+                    Fire.GetComponent<TiroParabolico>().damage = attackDamage;
+                    Attack = false;
+                }
+
             }
         }
 

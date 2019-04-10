@@ -61,4 +61,8 @@ MonoBehaviour:
     type: 3}
   NormalEnemy: {fileID: 8502273543185975273, guid: 7f73d695a501cee45975257caa507348,
     type: 3}
+  FlyingEnemy: {fileID: 4685046645251108551, guid: b6bb9c6375d80c34fa07cc0b203ccdd2,
+    type: 3}
+  RangeEnemy: {fileID: 3014839650346615833, guid: 3ce4cca3d48e9b048b6b94f6c24d7a3f,
+    type: 3}
   isGenerating: 0

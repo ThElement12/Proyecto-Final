@@ -17,7 +17,8 @@ TagManager:
   - FireBall
   - Sword
   - Weapon
-  - Enemies FireBall
+  - Flying Enemy Fire
+  - Range Enemy Fire
   layers:
   - Default
   - TransparentFX

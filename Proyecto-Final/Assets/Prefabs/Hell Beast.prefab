@@ -129,8 +129,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.6, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.26515466, y: 0.4491532, z: 0.2}
+  m_Center: {x: -0.011999165, y: -0.07542362, z: 0}
 --- !u!114 &904364450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,5 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
-  attackDamage: 1
-  attackPosition: {x: 0, y: 0, z: 0}
+  attackDamage: 2
+  speed: 3
+  myAttackPos: 5
+  Fire: {fileID: 3513128697865396466, guid: 6d51ee2f4b0e9b048b2d8f12ee87802b, type: 3}
+  Attack: 0

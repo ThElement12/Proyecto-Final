@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemyGen : MonoBehaviour
 {
     GameObject player, newEnemy;
-    public GameObject BigEnemy, NormalEnemy;
+    public GameObject BigEnemy, NormalEnemy,FlyingEnemy, RangeEnemy;
     public bool isGenerating = false;
     bool isFight;
-    int EnemyCount = 7;
+    int EnemyCount = 9;
     GameObject actualwall;
     int count = 30;
     // Start is called before the first frame update
@@ -42,14 +42,23 @@ public class EnemyGen : MonoBehaviour
         {
             isGenerating = false;
         }
-        if(EnemyCount > 3)
+        else if(EnemyCount > 5)
         {
             newEnemy = Instantiate(NormalEnemy, new Vector3(transform.position.x + 1, NormalEnemy.transform.position.y, -7), Quaternion.identity);
         }
 
-        else
+        else if(EnemyCount > 3)
         {
             newEnemy = Instantiate(BigEnemy, new Vector3(transform.position.x + 1, BigEnemy.transform.position.y, -7), Quaternion.identity);
+        }
+        else if(EnemyCount > 1)
+        {
+            newEnemy = Instantiate(RangeEnemy, new Vector3(transform.position.x + 1, RangeEnemy.transform.position.y, -7), Quaternion.identity);
+
+        }
+        else
+        {
+            newEnemy = Instantiate(FlyingEnemy, new Vector3(transform.position.x + 1, FlyingEnemy.transform.position.y, -7), Quaternion.identity);
         }
         EnemyCount--;
     }

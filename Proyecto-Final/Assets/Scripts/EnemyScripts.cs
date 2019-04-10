@@ -12,6 +12,7 @@ public class EnemyScripts : MonoBehaviour
     public GameObject Fire;
 
     public bool Attack = false;
+    
 
     int count = 40;
     Vector3 attackPosition;
@@ -27,8 +28,6 @@ public class EnemyScripts : MonoBehaviour
     {
         MovimientoEnemigo();
         AtaqueEnemigo();
-        
-
     }
 
     void MovimientoEnemigo()
@@ -100,5 +99,10 @@ public class EnemyScripts : MonoBehaviour
             }
         }
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+
+        
     }
 }

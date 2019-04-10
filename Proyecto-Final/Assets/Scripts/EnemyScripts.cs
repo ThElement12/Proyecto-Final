@@ -9,7 +9,9 @@ public class EnemyScripts : MonoBehaviour
    // public float attackDistance;
     public float speed;
     public float myAttackPos;
-    public float Fire;
+    public GameObject Fire;
+
+    public bool Attack = false;
 
     int count = 40;
     Vector3 attackPosition;
@@ -23,23 +25,39 @@ public class EnemyScripts : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.x - Target.transform.position.x < 0)
+        MovimientoEnemigo();
+        AtaqueEnemigo();
+        
+
+    }
+
+    void MovimientoEnemigo()
+    {
+        if (transform.position.x - Target.transform.position.x < 0)
         {
             if (tag == "NormalEnemy")
-                GetComponent<SpriteRenderer>().flipX = false;
 
-            else  
-                GetComponent<SpriteRenderer>().flipX = true;
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+
+            else
+                transform.rotation = new Quaternion(0, -179.9f, 0, 0);
         }
         else
         {
             if (tag == "NormalEnemy")
-                GetComponent<SpriteRenderer>().flipX = true;
+                transform.rotation = new Quaternion(0, -179.9f, 0, 0);
 
             else
-                GetComponent<SpriteRenderer>().flipX = false;
+                transform.rotation = new Quaternion(0, 0, 0, 0);
         }
         step = speed * Time.deltaTime;
+        
+
+
+    }
+    void AtaqueEnemigo()
+    {
+        
         if (transform.position.x - Target.transform.position.x > attackPosition.x || transform.position.x - Target.transform.position.x < -attackPosition.x)
         {
             transform.position = new Vector3(Vector3.MoveTowards(transform.position, Target.position, step).x, transform.position.y, transform.position.z);
@@ -57,6 +75,16 @@ public class EnemyScripts : MonoBehaviour
             {
                 count--;
                 GetComponent<Animator>().SetBool("isAttacking", false);
+            }
+
+            if (tag == "Flying Enemy")
+            {
+                if (Attack && GameObject.FindGameObjectWithTag("Enemies FireBall") == null)
+                {
+                    Instantiate(Fire, new Vector3(transform.position.x + 0.2f, transform.position.y, -7), Quaternion.identity);
+                    Fire.GetComponent<TiroParabolico>().damage = attackDamage;
+                    Attack = false;
+                }
             }
         }
 

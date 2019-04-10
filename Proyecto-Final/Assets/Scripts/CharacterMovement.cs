@@ -122,6 +122,10 @@ public class CharacterMovement : MonoBehaviour
         Instantiate(Fuego, new Vector3(GetComponent<SpriteRenderer>().flipX ? transform.position.x - 0.44f : transform.position.x + 0.44f,
             transform.position.y,transform.position.z), Quaternion.identity);
     }
+    public void RecibirDamage(float damage)
+    {
+        Vida -=Mathf.Clamp(damage - (damage * 0.02f * Armor),0,Vida);
+    }
 
     private void OnTriggerEnter(Collider other)
     {

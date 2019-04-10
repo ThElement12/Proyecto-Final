@@ -6,8 +6,8 @@ public class TiroParabolico : MonoBehaviour
 {
     Vector3 posicion = Vector3.zero;
     Vector3 velocidad = new Vector3(10,0);
-    float angulo;
 
+    public float damage;
     Vector3 distancia;
 
     GameObject jugador;
@@ -16,7 +16,7 @@ public class TiroParabolico : MonoBehaviour
     void Start()
     {
         jugador = GameObject.FindGameObjectWithTag("Player");
-        distancia = jugador.transform.position - transform.position;
+        
         
 
      //   angulo = Vector3.Angle(jugador.transform.position, transform.position);
@@ -25,13 +25,12 @@ public class TiroParabolico : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        distancia = jugador.transform.position - transform.position;
         posicion.x = distancia.normalized.x * velocidad.x * Time.deltaTime;
         posicion.y = velocidad.y * Time.deltaTime + Physics.gravity.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
 
 //     transform.LookAt(jugador.transform);
         transform.Translate(posicion);
-        
-      
         velocidad += Physics.gravity * Time.deltaTime;
 
         //  posicion.x = velocidad.x * Time.deltaTime;
@@ -41,11 +40,17 @@ public class TiroParabolico : MonoBehaviour
         // posicion.y = velocidad.y * Mathf.Cos(angulo * Mathf.Deg2Rad) * Time.deltaTime + 0.5f * Physics.gravity.y * Mathf.Pow(Time.deltaTime, 2);
 
         //velocidad.y += Physics.gravity.y * Time.deltaTime;
-
-
-
-
-
-
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            other.GetComponent<CharacterMovement>().RecibirDamage(damage);
+            Destroy(gameObject);
+        }
+        else if(other.tag == "Platform")
+        {
+            Destroy(gameObject);
+        }
     }
 }

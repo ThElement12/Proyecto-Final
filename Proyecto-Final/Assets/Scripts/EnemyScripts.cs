@@ -11,6 +11,7 @@ public class EnemyScripts : MonoBehaviour
     public float myAttackPos;
     public GameObject Fire;
 
+
     public bool Attack = false;
     
 
@@ -26,6 +27,20 @@ public class EnemyScripts : MonoBehaviour
 
     private void Update()
     {
+        if(life == 0)
+        {
+            if(tag == "Range Enemy" || tag == "NormalEnemy")
+            {
+                Attack = false;
+                GetComponent<Animator>().SetBool("isDying", true);
+                Destroy(gameObject, 1);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
+        }
         MovimientoEnemigo();
         AtaqueEnemigo();
     }
@@ -102,7 +117,10 @@ public class EnemyScripts : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
+        if(other.tag == "Sword")
+        {
+            life = Mathf.Clamp(life - other.transform.parent.gameObject.GetComponent<CharacterMovement>().attackDamage, 0, 100);
+        }
         
     }
 }

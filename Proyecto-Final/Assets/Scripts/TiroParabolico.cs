@@ -16,16 +16,16 @@ public class TiroParabolico : MonoBehaviour
     void Start()
     {
         jugador = GameObject.FindGameObjectWithTag("Player");
-        
-        
+        distancia = jugador.transform.position - transform.position;
 
-     //   angulo = Vector3.Angle(jugador.transform.position, transform.position);
+
+        //   angulo = Vector3.Angle(jugador.transform.position, transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        distancia = jugador.transform.position - transform.position;
+       
         posicion.x = distancia.normalized.x * velocidad.x * Time.deltaTime;
         posicion.y = (velocidad.y * Time.deltaTime) + Physics.gravity.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
 

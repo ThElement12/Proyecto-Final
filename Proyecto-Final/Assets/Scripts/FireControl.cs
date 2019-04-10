@@ -6,7 +6,7 @@ public class FireControl : MonoBehaviour
 {
     public Vector3 velocidad = new Vector3(8f,0);
     Transform Jugador;
-    public float Damage = 0;
+    public float Damage;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +35,12 @@ public class FireControl : MonoBehaviour
         {
             if(other.tag != "Player")
             {
-                other.GetComponent<EnemyScripts>().life -= Damage;
-                Destroy(gameObject);
+                if(other.gameObject.GetComponent<EnemyScripts>() != null)
+                {
+                   other.gameObject.GetComponent<EnemyScripts>().life = Mathf.Clamp(other.gameObject.GetComponent<EnemyScripts>().life - Damage,0,100);
+                   Destroy(gameObject);
+                }
+                
                 
             }            
         }

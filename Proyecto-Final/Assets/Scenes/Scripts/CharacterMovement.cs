@@ -11,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
 
    
     Vector3 jumpforce;
-    Vector3 aceleration = new Vector3(0.2f,Physics.gravity.x);
+    Vector3 aceleration = new Vector3(0.1f,Physics.gravity.x);
     Vector3 normalSpeed = Vector3.zero;
     bool isOnPlatform = false;
     Vector3 position;
@@ -66,7 +66,11 @@ public class CharacterMovement : MonoBehaviour
                 transform.rotation = new Quaternion(0, 0, 0, 0);
           
         }
-
+        else 
+        {
+            normalSpeed.x = 0;
+            position.x = 0;
+        }
 
         if (!isOnPlatform)
         {

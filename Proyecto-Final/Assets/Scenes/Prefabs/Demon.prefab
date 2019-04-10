@@ -129,7 +129,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!114 &322136013
 MonoBehaviour:
@@ -145,4 +145,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   attackDamage: 1
-  attackPosition: {x: 0, y: 0, z: 0}
+  speed: 0
+  myAttackPos: 0

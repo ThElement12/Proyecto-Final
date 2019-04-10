@@ -6,9 +6,10 @@ public class EnemyScripts : MonoBehaviour
 {
     public float life = 100;
     public float attackDamage = 1;
-    public float attackDistance;
+   // public float attackDistance;
     public float speed;
     public float myAttackPos;
+    public float Fire;
 
     int count = 40;
     Vector3 attackPosition;

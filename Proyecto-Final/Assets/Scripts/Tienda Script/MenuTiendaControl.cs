@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuTiendaControl : MonoBehaviour
 {
-    
+    public int cost;
+    public TextMesh costTxt; 
     TextMesh info;
     GameObject PanelCompra;
     // Start is called before the first frame update
@@ -32,7 +33,7 @@ public class MenuTiendaControl : MonoBehaviour
         {
             PanelCompra.SetActive(true);
             PanelCompra.transform.GetChild(6).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
-            info.text = "Incrementa la armadura base en +5. Se compra una vez";
+            info.text = "Incrementa la armadura base en +5.\n Se compra una vez";
 
         }
         else if (gameObject.name == "Pocion")
@@ -57,9 +58,9 @@ public class MenuTiendaControl : MonoBehaviour
         }
         else
         {
-
             SceneManager.LoadScene("MapaPrincipal");
         }
+        costTxt.text = cost.ToString();
     }
     private void OnMouseOver()
     {

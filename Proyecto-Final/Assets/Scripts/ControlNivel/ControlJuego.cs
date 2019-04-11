@@ -22,6 +22,7 @@ public class ControlJuego : MonoBehaviour
         LevelPass
     }
 
+    public static int money;
     public static GameState state;
     public static NivelActual Nivel;
     public static int NivelesLogrados = 0, level = 1;
@@ -80,8 +81,9 @@ public class ControlJuego : MonoBehaviour
                 break;
             case GameState.LevelPass:
                 level++;
-                NivelesLogrados++;
+                //NivelesLogrados++;
                 state = GameState.SelectingLevel;
+                SceneManager.LoadScene("MapaPrincipal");
                 break;
         }
                     

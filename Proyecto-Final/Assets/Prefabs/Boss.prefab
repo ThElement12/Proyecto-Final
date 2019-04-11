@@ -133,7 +133,7 @@ MonoBehaviour:
   speed: 0.8
   myAttackPos: 4
   Fire: {fileID: 0}
-  Coin: {fileID: 0}
+  Coin: {fileID: 1377083296233530034, guid: fc3d65b191bbb2740acdfd152f7ffa7c, type: 3}
   Attack: 0
 --- !u!1 &6473288572044970665
 GameObject:

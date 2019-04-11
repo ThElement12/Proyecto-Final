@@ -205,9 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781412cd60463b9409d82edcc9d62ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoinsCount: 2
   life: 100
   attackDamage: 1
   speed: 2
   myAttackPos: 1
   Fire: {fileID: 0}
+  Coin: {fileID: 1377083296233530034, guid: fc3d65b191bbb2740acdfd152f7ffa7c, type: 3}
   Attack: 0

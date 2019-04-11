@@ -13,10 +13,11 @@ public class ControlJuego : MonoBehaviour
         Nivel3,
         BossFinal
     }
-
+   
     public enum GameState
     {
-        levelSelect,
+        SelectingLevel,
+        LevelSelect,
         Playing,
         LevelPass
     }
@@ -31,7 +32,7 @@ public class ControlJuego : MonoBehaviour
         Nivel = NivelActual.Nivel1;
         Niveles = new List<GameObject>(GameObject.FindGameObjectsWithTag("Nivel"));
         Niveles = Niveles.OrderBy(o => o.name).ToList();
-        state = GameState.levelSelect;
+        state = GameState.SelectingLevel;
     }
 
     // Update is called once per frame
@@ -39,9 +40,9 @@ public class ControlJuego : MonoBehaviour
     {
         switch (state)
         {
-            case GameState.levelSelect:
-                    if (SceneManager.GetActiveScene().name == "MapaPrincipal")
-                    {
+           
+            case GameState.LevelSelect:
+                    
                         if (NivelesLogrados < 4 && NivelesLogrados > 1)
                         {
                             for (int i = 1; i <= NivelesLogrados; i++)
@@ -71,8 +72,8 @@ public class ControlJuego : MonoBehaviour
                             default:
                                 break;
                         }
-                    }
-                //state = GameState.Playing;
+                    
+                    state = GameState.Playing;
                     break;
             case GameState.Playing:
                 
@@ -80,7 +81,7 @@ public class ControlJuego : MonoBehaviour
             case GameState.LevelPass:
                 level++;
                 NivelesLogrados++;
-                state = GameState.levelSelect;
+                state = GameState.SelectingLevel;
                 break;
         }
                     

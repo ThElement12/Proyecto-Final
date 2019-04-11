@@ -28,18 +28,8 @@ public class TiroParabolico : MonoBehaviour
        
         posicion.x = distancia.normalized.x * velocidad.x * Time.deltaTime;
         posicion.y = (velocidad.y * Time.deltaTime) + Physics.gravity.y * (Mathf.Pow(Time.deltaTime, 2) / 2);
-
-//     transform.LookAt(jugador.transform);
         transform.Translate(posicion);
         velocidad += Physics.gravity * Time.deltaTime;
-
-        //  posicion.x = velocidad.x * Time.deltaTime;
-
-        //angulo = Mathf.Atan(distancia.y / distancia.x) * Mathf.Rad2Deg;
-        //posicion.x = velocidad.x / Time.deltaTime;
-        // posicion.y = velocidad.y * Mathf.Cos(angulo * Mathf.Deg2Rad) * Time.deltaTime + 0.5f * Physics.gravity.y * Mathf.Pow(Time.deltaTime, 2);
-
-        //velocidad.y += Physics.gravity.y * Time.deltaTime;
     }
     private void OnTriggerEnter(Collider other)
     {

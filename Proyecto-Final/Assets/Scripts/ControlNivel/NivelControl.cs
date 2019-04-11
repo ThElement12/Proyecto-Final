@@ -22,24 +22,28 @@ public class NivelControl : MonoBehaviour
         {
             case "Nivel 1":
                 ControlJuego.Nivel = ControlJuego.NivelActual.Nivel1;
+                ControlJuego.state = ControlJuego.GameState.LevelSelect;
                    
                 break;
             case "Nivel 2":
                 if (!transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
                 {
                     ControlJuego.Nivel = ControlJuego.NivelActual.Nivel2;
+                    ControlJuego.state = ControlJuego.GameState.LevelSelect;
                 }
                 break;
             case "Nivel 3":
                 if (!transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
                 {
                     ControlJuego.Nivel = ControlJuego.NivelActual.Nivel3;
+                    ControlJuego.state = ControlJuego.GameState.LevelSelect;
                 }
                 break;
             case "Nivel 4":
                 if (!transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
                 {
                     ControlJuego.Nivel = ControlJuego.NivelActual.BossFinal;
+                    ControlJuego.state = ControlJuego.GameState.LevelSelect;
                 }
                 break;
             case "Tienda":

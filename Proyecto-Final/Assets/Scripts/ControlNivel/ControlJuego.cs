@@ -72,11 +72,15 @@ public class ControlJuego : MonoBehaviour
                                 break;
                         }
                     }
+                state = GameState.Playing;
                     break;
             case GameState.Playing:
-
+                SceneManager.LoadScene("Principal");
                 break;
             case GameState.LevelPass:
+                level++;
+                NivelesLogrados++;
+                state = GameState.levelSelect;
                 break;
         }
                     

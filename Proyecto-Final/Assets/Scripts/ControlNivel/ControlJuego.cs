@@ -75,7 +75,7 @@ public class ControlJuego : MonoBehaviour
                 state = GameState.Playing;
                     break;
             case GameState.Playing:
-                SceneManager.LoadScene("Principal");
+                
                 break;
             case GameState.LevelPass:
                 level++;

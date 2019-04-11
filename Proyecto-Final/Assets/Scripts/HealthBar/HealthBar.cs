@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
-    public Image healthBar;
-    public Text ratioText;
-
-    
+    Image healthBar;
+    Text ratioText;
     private float hitpoints;
     private float maxhitpoints = 100;
     // Start is called before the first frame update
     void Start()
     {
+        healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
+        ratioText = GameObject.Find("ratioText").GetComponent<Text>();
         hitpoints = gameObject.GetComponent<CharacterMovement>().Vida;
         UpdateHealth();
     }

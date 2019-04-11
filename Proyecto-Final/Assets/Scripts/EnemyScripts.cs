@@ -71,7 +71,10 @@ public class EnemyScripts : MonoBehaviour
                 transform.rotation = new Quaternion(0, 0, 0, 0);
         }
         step = speed * Time.deltaTime;
-        
+        if(tag != "Flying Enemy" && tag != "Range Enemy")
+        {
+            GetComponent<Animator>().SetBool("isRunning", true);
+        }
 
 
     }

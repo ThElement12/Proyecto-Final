@@ -16,6 +16,13 @@ public class ControlJuego : MonoBehaviour
         Nivel3,
         BossFinal
     }
+    public enum DificultadActual
+    {
+        MuyFacil,
+        Facil,
+        Medio,
+        Dificil
+    }
    
     public enum GameState
     {
@@ -29,6 +36,7 @@ public class ControlJuego : MonoBehaviour
     public static string UserName;
     public static int money;
     public static GameState state;
+    public static DificultadActual Dificultad;
     public static NivelActual Nivel;
     public static int NivelesLogrados = 4, level = 1;
     bool Pass = true;
@@ -38,6 +46,7 @@ public class ControlJuego : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Dificultad = DificultadActual.MuyFacil;
         //player = GameObject.FindGameObjectWithTag("Player");
         //Nivel = NivelActual.Nivel1;
         if(SceneManager.GetActiveScene().name == "MapaPrincipal")

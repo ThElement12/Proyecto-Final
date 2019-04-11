@@ -92,7 +92,7 @@ public class CharacterMovement : MonoBehaviour
         else
            _Animator.SetBool("isAttacking", false);
         
-        if (Input.GetKey(KeyCode.C) && SkillTime <= 0)
+        if (Input.GetKey(KeyCode.C) && SkillTime <= 0 && ControlJuego.Inventario.Find(x=> x.Nombre == "Amuleto").Cantidad == 1)
         {
             SkillTime = 3;
             _Animator.SetBool("isJutsing", true);

@@ -19,6 +19,7 @@ TagManager:
   - Weapon
   - Flying Enemy Fire
   - Range Enemy Fire
+  - Nivel
   layers:
   - Default
   - TransparentFX

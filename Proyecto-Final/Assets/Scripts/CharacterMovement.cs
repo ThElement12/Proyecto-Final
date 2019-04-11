@@ -126,7 +126,7 @@ public class CharacterMovement : MonoBehaviour
     }
     public void RecibirDamage(float damage)
     {
-        Vida -= Mathf.Clamp(damage - (damage * 0.2f * Armor), 0, Vida);
+        Vida -= Mathf.Clamp(damage - (damage * 0.02f * Armor), 0, Vida);
     }
 
     private void OnTriggerEnter(Collider other)

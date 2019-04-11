@@ -8,7 +8,7 @@ public class EnemyGen : MonoBehaviour
     public GameObject BigEnemy, NormalEnemy,FlyingEnemy, RangeEnemy;
     public bool isGenerating = false;
     bool isFight;
-    int normalEnemyC = 3, bigEnemyC = 1, flyingEnemyC = 2, rangeEnemyC = 1, EnemyCount;
+    int normalEnemyC = 2, bigEnemyC = 1, flyingEnemyC = 2, rangeEnemyC = 1, EnemyCount;
 
     GameObject actualwall;
     int count = 30;
@@ -16,6 +16,9 @@ public class EnemyGen : MonoBehaviour
     void Start()
     {
         bigEnemyC = Mathf.RoundToInt(bigEnemyC * ControlJuego.NivelesLogrados / 2) < 1 ? 1 : Mathf.RoundToInt(bigEnemyC * ControlJuego.NivelesLogrados / 2);
+        normalEnemyC = Mathf.RoundToInt(normalEnemyC * ControlJuego.NivelesLogrados / 2) < 1 ? 1 : Mathf.RoundToInt(normalEnemyC * ControlJuego.NivelesLogrados / 2);
+        flyingEnemyC = Mathf.RoundToInt(flyingEnemyC * ControlJuego.NivelesLogrados / 2) < 1 ? 1 : Mathf.RoundToInt(flyingEnemyC * ControlJuego.NivelesLogrados / 2);
+        rangeEnemyC = Mathf.RoundToInt(rangeEnemyC * ControlJuego.NivelesLogrados / 2) < 1 ? 1 : Mathf.RoundToInt(rangeEnemyC * ControlJuego.NivelesLogrados / 2);
         player = GameObject.FindGameObjectWithTag("Player");
         EnemyCount = normalEnemyC + bigEnemyC + flyingEnemyC + rangeEnemyC;
     }

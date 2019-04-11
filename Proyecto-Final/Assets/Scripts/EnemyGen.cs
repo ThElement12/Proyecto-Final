@@ -8,7 +8,8 @@ public class EnemyGen : MonoBehaviour
     public GameObject BigEnemy, NormalEnemy,FlyingEnemy, RangeEnemy;
     public bool isGenerating = false;
     bool isFight;
-    int EnemyCount = 9;
+    int normalEnemyC = 3, bigEnemyC = 2, flyingEnemyC = 2, rangeEnemyC = 1, EnemyCount = 8;
+
     GameObject actualwall;
     int count = 30;
     // Start is called before the first frame update
@@ -42,23 +43,26 @@ public class EnemyGen : MonoBehaviour
         {
             isGenerating = false;
         }
-        else if(EnemyCount > 5)
+        else if(normalEnemyC > 0)
         {
             newEnemy = Instantiate(NormalEnemy, new Vector3(transform.position.x + 1, NormalEnemy.transform.position.y, -7), Quaternion.identity);
+            normalEnemyC--;
         }
 
-        else if(EnemyCount > 3)
+        if(bigEnemyC > 0 && normalEnemyC == 0 && rangeEnemyC == 0 && flyingEnemyC == 0)
         {
             newEnemy = Instantiate(BigEnemy, new Vector3(transform.position.x + 1, BigEnemy.transform.position.y, -7), Quaternion.identity);
+            bigEnemyC--;
         }
-        else if(EnemyCount > 1)
+        if(rangeEnemyC > 0 && normalEnemyC == 0)
         {
             newEnemy = Instantiate(RangeEnemy, new Vector3(transform.position.x + 1, RangeEnemy.transform.position.y, -7), Quaternion.identity);
-
+            rangeEnemyC--;
         }
-        else
+        if(flyingEnemyC > 0 && normalEnemyC == 0 && rangeEnemyC == 0)
         {
             newEnemy = Instantiate(FlyingEnemy, new Vector3(transform.position.x + 1, FlyingEnemy.transform.position.y, -7), Quaternion.identity);
+            flyingEnemyC--;
         }
         EnemyCount--;
     }

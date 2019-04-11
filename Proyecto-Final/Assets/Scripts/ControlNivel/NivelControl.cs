@@ -6,11 +6,19 @@ using UnityEngine.SceneManagement;
 public class NivelControl : MonoBehaviour
 {
     int level;
+    GameObject PanelDificultad;
     // Start is called before the first frame update
     void Start()
     {
-        if(name != "Nivel 1" && name != "Tienda")
-            level = GetComponent<UnlockedLevel>().level;
+        if(name == "Dificultad")
+        {
+            PanelDificultad = GameObject.Find("PanelDificultad");
+            PanelDificultad.SetActive(false);
+
+        }
+        else if (name != "Nivel 1" && name != "Tienda")
+           level = GetComponent<UnlockedLevel>().level;
+        
     }
     
     private void OnMouseUp()
@@ -47,7 +55,7 @@ public class NivelControl : MonoBehaviour
                 SceneManager.LoadScene("Tienda");
                 break;
             case "Dificultad":
-
+                PanelDificultad.SetActive(true);
                 break;
             default:
                 break;

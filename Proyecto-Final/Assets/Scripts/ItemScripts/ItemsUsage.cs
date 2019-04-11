@@ -19,9 +19,9 @@ public class ItemsUsage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             item = GameObject.Find("Item2");
-            if (item.GetComponent<SpriteRenderer>().sprite.name == "item2")
+            if (item.GetComponent<SpriteRenderer>().sprite.name == "item2" && ControlJuego.Inventario[1].Cantidad > 0 && player.GetComponent<CharacterMovement>().Vida < 90) ;
             {
-                ControlJuego.Inventario[2].Cantidad--; 
+                ControlJuego.Inventario[1].Cantidad --; 
                 player.GetComponent<CharacterMovement>().Vida += 10;
             }
         }
@@ -29,17 +29,14 @@ public class ItemsUsage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             item = GameObject.Find("Item3");
-            if(item.GetComponent<SpriteRenderer>().sprite.name == "item3")
+            if(item.GetComponent<SpriteRenderer>().sprite.name == "item3" && ControlJuego.Inventario[2].Cantidad > 0)
             {
-                ControlJuego.Inventario[3].Cantidad--;
+                ControlJuego.Inventario[2].Cantidad -= 1;
                 power = Random.Range(0, 3);
                 switch (power)
                 {
                     case 0:
-                        if (player.GetComponent<CharacterMovement>().Vida < 50)
-                        {
-                            player.GetComponent<CharacterMovement>().Vida += 50;
-                        }
+                        player.GetComponent<CharacterMovement>().Vida += 50;
                         break;
                     case 1:
                         player.GetComponent<CharacterMovement>().Armor += 5;

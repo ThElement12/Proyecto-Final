@@ -55,18 +55,22 @@ public class ControlJuego : MonoBehaviour
                         switch (Nivel)
                         {
                             case NivelActual.Nivel1:
-                                SceneManager.LoadScene("Principal");
+                                level = 1;
+                                SceneManager.LoadScene("Intro");
                                 ///Dificultad
                                 break;
                             case NivelActual.Nivel2:
+                                level = 2;
                                 SceneManager.LoadScene("Principal");
                                 ///Dificultad
                                 break;
                             case NivelActual.Nivel3:
+                                level = 3;
                                 SceneManager.LoadScene("Principal");
                                 ///Dificultad
                                 break;
                             case NivelActual.BossFinal:
+                                level = 4;
                                 SceneManager.LoadScene("Principal");
                                 ///Dificultad
                                 break;

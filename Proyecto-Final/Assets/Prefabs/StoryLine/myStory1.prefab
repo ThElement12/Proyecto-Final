@@ -77,9 +77,13 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335975382342897044}
-  m_Text: Hello World
+  m_Text: "Hace mucho tiempo las 7 naciones viv\xEDan en paz y \r\narmon\xEDa, hasta
+    que los ogros atacaron. Solo \r\nel elegido pod\xEDa detenerlos, pero cuando m\xE1s
+    lo\r\nnecesitaban desapareci\xF3.\r\n\r\nDespu\xE9s de d\xE9cadas el gran h\xE9roe
+    ha vuelto\nde la aldea ninja para\r ponerle fin a el \nsufrimiento que el rey
+    de los\r ogros caus\xF3.\r"
   m_OffsetZ: 0
-  m_CharacterSize: 0.02
+  m_CharacterSize: 0.01
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 0

@@ -77,9 +77,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7852377923215677097}
-  m_Text: Hello World
+  m_Text: 
   m_OffsetZ: 0
-  m_CharacterSize: 0.02
+  m_CharacterSize: 0.01
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 0

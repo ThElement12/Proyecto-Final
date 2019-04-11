@@ -7,6 +7,8 @@ public class MapManager : MonoBehaviour
 {
     public GameObject fightingFloor, firstFloor, lastFloor, normalFloor, Boss;
     public float floorsize;
+    public TextMesh s1, s4;
+    public TextMesh storyLineText;
 
     Dictionary<char, GameObject> cellPrefabs;
     GameObject _newCell;
@@ -38,6 +40,11 @@ public class MapManager : MonoBehaviour
     }
     private void LoadMap()
     {
+        if(ControlJuego.level == 4)
+        {
+            storyLineText.text = s4.text;
+        }
+
         int j, i = 0;
         float position = floorsize;
         foreach(XmlNode actualRow in level.SelectNodes("//Level/Map/Row"))

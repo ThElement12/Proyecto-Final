@@ -5,8 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public bool noCollision = false;
-    public float attackDamage = 2.0f;
-    //public float life = 100;
+    public float attackDamage = 10;
     public GameObject Fuego;
 
    

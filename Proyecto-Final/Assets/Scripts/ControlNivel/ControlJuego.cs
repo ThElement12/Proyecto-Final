@@ -10,6 +10,7 @@ public class ControlJuego : MonoBehaviour
     public GameObject player;
     public enum NivelActual
     {
+        Nivel0,
         Nivel1,
         Nivel2,
         Nivel3,
@@ -18,7 +19,6 @@ public class ControlJuego : MonoBehaviour
    
     public enum GameState
     {
-        SelectingLevel,
         LevelSelect,
         Playing,
         LevelPass
@@ -31,7 +31,7 @@ public class ControlJuego : MonoBehaviour
     public static GameState state;
     public static NivelActual Nivel;
     public static int NivelesLogrados = 4, level = 1;
-    bool Pass = false;
+    bool Pass = true;
     
     float playerLife;
 
@@ -39,9 +39,11 @@ public class ControlJuego : MonoBehaviour
     void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player");
-        Nivel = NivelActual.Nivel1;
-        //if()
-        state = GameState.SelectingLevel;
+        //Nivel = NivelActual.Nivel1;
+        if(SceneManager.GetActiveScene().name == "MapaPrincipal")
+        {
+            state = GameState.LevelSelect;
+        }       
     }
 
     // Update is called once per frame
@@ -51,57 +53,55 @@ public class ControlJuego : MonoBehaviour
         {
            
             case GameState.LevelSelect:
-                        switch (Nivel)
+                switch (Nivel)
+                {
+                    case NivelActual.Nivel1:
+                        state = GameState.Playing;
+                        level = 1;
+                        if (!Pass)
                         {
-                            case NivelActual.Nivel1:
-                                state = GameState.Playing;
-                                level = 1;
-                                if (!Pass)
-                                {
-                                    Pass = true;   
-                                    SceneManager.LoadScene("Intro");
-                                }
-                                else
-                                {
-                                    SceneManager.LoadScene("Principal");
-                                }
-                                ///Dificultad
-                                break;
-                            case NivelActual.Nivel2:
-                                level = 2;
-                                state = GameState.Playing;
-                                SceneManager.LoadScene("Principal");
-                                ///Dificultad
-                                break;
-                            case NivelActual.Nivel3:
-                                level = 3;
-                                state = GameState.Playing;
-                                SceneManager.LoadScene("Principal");
-                                ///Dificultad
-                                break;
-                            case NivelActual.BossFinal:
-                                level = 4;
-                                state = GameState.Playing;
-                                SceneManager.LoadScene("Principal");
-                                ///Dificultad
-                                break;
-                            default:
-                                break;
+                            Pass = true;   
+                            SceneManager.LoadScene("Intro");
                         }
-                    
-                    
-                    break;
+                        else
+                        {
+                            SceneManager.LoadScene("Principal");
+                        }
+                        ///Dificultad
+                        break;
+                    case NivelActual.Nivel2:
+                        level = 2;
+                        state = GameState.Playing;
+                        SceneManager.LoadScene("Principal");
+                        ///Dificultad
+                        break;
+                    case NivelActual.Nivel3:
+                        level = 3;
+                        state = GameState.Playing;
+                        SceneManager.LoadScene("Principal");
+                        ///Dificultad
+                        break;
+                    case NivelActual.BossFinal:
+                        level = 4;
+                        state = GameState.Playing;
+                        SceneManager.LoadScene("Principal");
+                        ///Dificultad
+                        break;
+                    default:
+                        break;
+                }
+                break;
             case GameState.Playing:
-                //playerLife = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().Vida;
                 if (player.GetComponent<CharacterMovement>().Vida <= 0)
                 {
                     state = GameState.LevelSelect;
+                    Nivel = NivelActual.Nivel0;
                     SceneManager.LoadScene("MapaPrincipal");
                 }
                 break;
             case GameState.LevelPass:
                 NivelesLogrados++;
-                state = GameState.SelectingLevel;
+                state = GameState.LevelSelect;
                 SceneManager.LoadScene("MapaPrincipal");
                 break;
         }

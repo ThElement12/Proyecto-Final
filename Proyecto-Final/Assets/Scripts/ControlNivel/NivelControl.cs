@@ -12,12 +12,7 @@ public class NivelControl : MonoBehaviour
         if(name != "Nivel 1" && name != "Tienda")
             level = GetComponent<UnlockedLevel>().level;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     private void OnMouseUp()
     {
         switch (name)

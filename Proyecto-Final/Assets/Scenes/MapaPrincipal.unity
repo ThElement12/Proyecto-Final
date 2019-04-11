@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 1260629829}
   - component: {fileID: 1260629828}
   - component: {fileID: 1260629832}
+  - component: {fileID: 1260629833}
   m_Layer: 0
   m_Name: Nivel 3
   m_TagString: Nivel
@@ -649,6 +650,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6135b1e8d7ce0704694c5f3727f9cb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1260629833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260629827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d63fb2122fd434094e27da2d474a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 2
 --- !u!1 &1447561354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1138,7 @@ GameObject:
   - component: {fileID: 1880707214}
   - component: {fileID: 1880707213}
   - component: {fileID: 1880707217}
+  - component: {fileID: 1880707218}
   m_Layer: 0
   m_Name: Nivel 4
   m_TagString: Nivel
@@ -1217,6 +1232,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6135b1e8d7ce0704694c5f3727f9cb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1880707218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880707212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d63fb2122fd434094e27da2d474a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 4
 --- !u!1 &1932927039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,6 +1442,7 @@ GameObject:
   - component: {fileID: 2051399259}
   - component: {fileID: 2051399258}
   - component: {fileID: 2051399262}
+  - component: {fileID: 2051399263}
   m_Layer: 0
   m_Name: Nivel 2
   m_TagString: Nivel
@@ -1507,3 +1536,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6135b1e8d7ce0704694c5f3727f9cb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2051399263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051399257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d63fb2122fd434094e27da2d474a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1

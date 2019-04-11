@@ -29,14 +29,18 @@ public class ControlJuego : MonoBehaviour
     public static int money;
     public static GameState state;
     public static NivelActual Nivel;
-    public static int NivelesLogrados = 0, level = 1;
-    List<GameObject> Niveles;
+    public static int NivelesLogrados = 5, level = 1;
+    bool Pass = false;
+    GameObject[] Niveles;
+    float playerLife;
+
     // Start is called before the first frame update
     void Start()
     {
+        //player = GameObject.FindGameObjectWithTag("Player");
         Nivel = NivelActual.Nivel1;
-        Niveles = new List<GameObject>(GameObject.FindGameObjectsWithTag("Nivel"));
-        Niveles = Niveles.OrderBy(o => o.name).ToList();
+        Niveles = new GameObject[4];
+        Niveles = GameObject.FindGameObjectsWithTag("Nivel");
         state = GameState.SelectingLevel;
     }
 
@@ -48,19 +52,33 @@ public class ControlJuego : MonoBehaviour
            
             case GameState.LevelSelect:
                     
-                        if (NivelesLogrados < 4 && NivelesLogrados > 1)
+                        /*if (NivelesLogrados < 4 && NivelesLogrados > 1)
                         {
                             for (int i = 1; i <= NivelesLogrados; i++)
                             {
+                                
                                 Niveles[i].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
                                 Niveles[i].transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
                             }
-                        }
+                        }*/
+                        /*if(NivelesLogrados > 1)
+                        {
+                            for(int i = 0; i < NivelesLogrados; i++)
+                            {
+                                
+                            }
+                        }*/
                         switch (Nivel)
                         {
                             case NivelActual.Nivel1:
                                 level = 1;
-                                SceneManager.LoadScene("Intro");
+                                if (!Pass)
+                                {
+                                    Pass = true;
+                                    SceneManager.LoadScene("Intro");
+                                }
+                                else
+                                    SceneManager.LoadScene("Principal");
                                 ///Dificultad
                                 break;
                             case NivelActual.Nivel2:
@@ -85,11 +103,15 @@ public class ControlJuego : MonoBehaviour
                     state = GameState.Playing;
                     break;
             case GameState.Playing:
-                
+                playerLife = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().Vida;
+                if (playerLife <= 0)
+                {
+                    state = GameState.LevelSelect;
+                    SceneManager.LoadScene("MapaPrincipal");
+                }
                 break;
             case GameState.LevelPass:
-                level++;
-                //NivelesLogrados++;
+                NivelesLogrados++;
                 state = GameState.SelectingLevel;
                 SceneManager.LoadScene("MapaPrincipal");
                 break;

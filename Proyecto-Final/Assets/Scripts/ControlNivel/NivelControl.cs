@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class NivelControl : MonoBehaviour
 {
+    int level;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(name != "Nivel 1" && name != "Tienda")
+            level = GetComponent<UnlockedLevel>().level;
     }
 
     // Update is called once per frame
@@ -26,21 +28,21 @@ public class NivelControl : MonoBehaviour
                    
                 break;
             case "Nivel 2":
-                if (!transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
+                if (ControlJuego.NivelesLogrados > level)
                 {
                     ControlJuego.Nivel = ControlJuego.NivelActual.Nivel2;
                     ControlJuego.state = ControlJuego.GameState.LevelSelect;
                 }
                 break;
             case "Nivel 3":
-                if (!transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
+                if (ControlJuego.NivelesLogrados > level)
                 {
                     ControlJuego.Nivel = ControlJuego.NivelActual.Nivel3;
                     ControlJuego.state = ControlJuego.GameState.LevelSelect;
                 }
                 break;
             case "Nivel 4":
-                if (!transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
+                if (ControlJuego.NivelesLogrados > level)
                 {
                     ControlJuego.Nivel = ControlJuego.NivelActual.BossFinal;
                     ControlJuego.state = ControlJuego.GameState.LevelSelect;

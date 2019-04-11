@@ -7,8 +7,8 @@ public class MapManager : MonoBehaviour
 {
     public GameObject fightingFloor, firstFloor, lastFloor, normalFloor, Boss;
     public float floorsize;
-    public TextMesh s1, s4;
-    public TextMesh storyLineText;
+    //public TextMesh s4;
+    public GameObject storyLineText;
 
     Dictionary<char, GameObject> cellPrefabs;
     GameObject _newCell;
@@ -27,22 +27,23 @@ public class MapManager : MonoBehaviour
             //{';', lastWall },
             //{'f', firstWall },
             //{' ', nullWall }
-        }; 
-    }
+        };
 
+        storyLineText.GetComponent<MeshRenderer>().enabled = false;
+    }
     // Start is called before the first frame update
     void Start()
     {
         level = new XmlDocument();
         level.LoadXml(Resources.Load<TextAsset>("level" + ControlJuego.level.ToString()).text);
         LoadMap();
-        
+        Destroy(storyLineText, 5);
     }
     private void LoadMap()
     {
         if(ControlJuego.level == 4)
         {
-            storyLineText.text = s4.text;
+            storyLineText.GetComponent<MeshRenderer>().enabled = true;
         }
 
         int j, i = 0;

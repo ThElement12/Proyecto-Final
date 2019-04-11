@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2329992671478958511}
   - component: {fileID: 2329992671478958510}
   - component: {fileID: 2329992671478958509}
+  - component: {fileID: 2000353355}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Player
@@ -127,7 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noCollision: 0
   attackDamage: 2
-  life: 100
   Fuego: {fileID: 1203788180941390411, guid: 4263e9810a81be94aad25c37e4144ea0, type: 3}
   Vida: 100
   DamageReceived: 0
@@ -151,6 +151,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2000353355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329992671478958505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99244ce53f7bc6447b1746a591f9fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  ratioText: {fileID: 0}
 --- !u!1 &6709998621281515499
 GameObject:
   m_ObjectHideFlags: 0

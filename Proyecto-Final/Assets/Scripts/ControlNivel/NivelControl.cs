@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NivelControl : MonoBehaviour
 {
@@ -17,30 +18,37 @@ public class NivelControl : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        if(name == "Nivel 1" || !transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
+        switch (name)
         {
-            switch (name)
-            {
-                case "Nivel 1":
-                    ControlJuego.Nivel = ControlJuego.NivelActual.Nivel1;
+            case "Nivel 1":
+                ControlJuego.Nivel = ControlJuego.NivelActual.Nivel1;
                    
-                    break;
-                case "Nivel 2":
+                break;
+            case "Nivel 2":
+                if (!transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
+                {
                     ControlJuego.Nivel = ControlJuego.NivelActual.Nivel2;
-                    Debug.Log("Carga");
-                    break;
-                case "Nivel 3":
+                }
+                break;
+            case "Nivel 3":
+                if (!transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
+                {
                     ControlJuego.Nivel = ControlJuego.NivelActual.Nivel3;
-                    Debug.Log("Carga");
-                    break;
-                case "Nivel 4":
+                }
+                break;
+            case "Nivel 4":
+                if (!transform.GetChild(1).GetComponent<SpriteRenderer>().enabled)
+                {
                     ControlJuego.Nivel = ControlJuego.NivelActual.BossFinal;
-                    Debug.Log("Carga");
-                    break;
-                default:
-                    break;
-            }
+                }
+                break;
+            case "Tienda":
+                SceneManager.LoadScene("Tienda");
+                break;
+            default:
+                break;
         }
+        
     }
     private void OnMouseEnter()
     {

@@ -63,8 +63,8 @@ public class MenuTiendaControl : MonoBehaviour
         }
         if(cost > ControlJuego.money)
             costTxt.color = new Color(255, 0, 0);
-        else
-            costTxt.color = new Color(255, 255,255);
+        //else
+        //    costTxt.color = new Color(255, 255,255);
 
 
         ItemSeleccion = name;

@@ -37,13 +37,17 @@ public class BotonPanel : MonoBehaviour
                     }
 
                 }
-                GetComponent<SpriteRenderer>().sprite = Soltado;
+                
                 ControlJuego.money -= int.Parse(GameObject.Find("Precio").GetComponent<TextMesh>().text);
                 MenuTiendaControl.Wallet.text = ControlJuego.money.ToString();
+                transform.parent.gameObject.SetActive(false);
             }
-            
+            GetComponent<SpriteRenderer>().sprite = Soltado;
+
         }
-        transform.parent.gameObject.SetActive(false);
+        else
+            transform.parent.gameObject.SetActive(false);
+
 
     }
 }

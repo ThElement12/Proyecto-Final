@@ -26,7 +26,7 @@ public class ControlJuego : MonoBehaviour
 
     public static List<Items> Inventario = new List<Items> { new Items("Armadura", 1), new Items("Pocion", 2), new Items("Lagrima", 1), new Items("Amuleto", 1) };
 
-    public static string Username;
+    public static string UserName;
     public static int money;
     public static GameState state;
     public static NivelActual Nivel;

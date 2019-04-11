@@ -9,12 +9,12 @@ public class EnemyScripts : MonoBehaviour
    // public float attackDistance;
     public float speed;
     public float myAttackPos;
-    public GameObject Fire;
+    public GameObject Fire, Coin;
 
 
     public bool Attack = false;
     
-
+    float CoinPosition;
     int count = 40;
     Vector3 attackPosition;
     Transform Target;
@@ -37,6 +37,11 @@ public class EnemyScripts : MonoBehaviour
             }
             else
             {
+                for(int i = 0; i < 7; i++)
+                {
+                    CoinPosition = Random.Range(-2, 2);
+                    Instantiate(Coin, new Vector3(transform.position.x + CoinPosition, -8.6f, -7f), Quaternion.identity);
+                }
                 Destroy(gameObject);
             }
 

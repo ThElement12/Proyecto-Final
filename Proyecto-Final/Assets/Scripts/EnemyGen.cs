@@ -8,7 +8,7 @@ public class EnemyGen : MonoBehaviour
     public GameObject BigEnemy, NormalEnemy,FlyingEnemy, RangeEnemy;
     public bool isGenerating = false;
     bool isFight;
-    int normalEnemyC = 3, bigEnemyC = 2, flyingEnemyC = 2, rangeEnemyC = 1, EnemyCount = 8;
+    int normalEnemyC = 3, bigEnemyC = 1, flyingEnemyC = 2, rangeEnemyC = 1, EnemyCount = 8;
 
     GameObject actualwall;
     int count = 30;

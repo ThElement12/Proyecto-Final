@@ -18,7 +18,7 @@ public class STL1 : MonoBehaviour
     {
         
         transform.Translate(position);
-        if (transform.position.y == 14.79f)
+        if (transform.position.y > 14.79f)
             SceneManager.LoadScene("Principal");
             
 

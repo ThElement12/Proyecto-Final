@@ -24,7 +24,7 @@ public class ControlJuego : MonoBehaviour
         LevelPass
     }
 
-    public static List<Items> Inventario = new List<Items> { new Items("Armadura", 0), new Items("Pocion", 0), new Items("Lagrima", 0), new Items("Amuleto", 0) };
+    public static List<Items> Inventario = new List<Items> { new Items("Armadura", 0), new Items("Pocion", 1), new Items("Lagrima", 0), new Items("Amuleto", 0) };
 
 
     public static int money;

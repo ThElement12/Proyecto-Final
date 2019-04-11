@@ -163,8 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99244ce53f7bc6447b1746a591f9fc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  ratioText: {fileID: 0}
+  healthBar: {fileID: 3815116806321681779, guid: 7c4a0e4b84fc2814e8c92adc21092014,
+    type: 3}
+  ratioText: {fileID: 2493726119283530724, guid: bf9a6dea7eb6589449c6519aae3745ab,
+    type: 3}
 --- !u!1 &6709998621281515499
 GameObject:
   m_ObjectHideFlags: 0

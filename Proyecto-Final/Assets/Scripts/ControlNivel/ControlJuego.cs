@@ -40,6 +40,7 @@ public class ControlJuego : MonoBehaviour
     {
         //player = GameObject.FindGameObjectWithTag("Player");
         Nivel = NivelActual.Nivel1;
+        //if()
         state = GameState.SelectingLevel;
     }
 

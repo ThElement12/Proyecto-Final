@@ -1032,6 +1032,7 @@ MonoBehaviour:
   lastFloor: {fileID: 5972498009963713268, guid: a27c8e083b6831342aa1c6d91ff83a4e,
     type: 3}
   normalFloor: {fileID: 461928637, guid: d50068c35c96d7a46b702dfea2788f36, type: 3}
+  Boss: {fileID: 2321588364490522050, guid: 3dbe1f85ad39db741a114fb83ce34780, type: 3}
   floorsize: 22.5
 --- !u!20 &678650057
 Camera:

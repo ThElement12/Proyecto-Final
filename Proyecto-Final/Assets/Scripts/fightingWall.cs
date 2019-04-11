@@ -31,6 +31,13 @@ public class fightingWall : MonoBehaviour
                 }
             }
         }
+
+        if(tag == "Exit")
+        {
+            //pasa siguiente Nivel
+            ControlJuego.level++;
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)

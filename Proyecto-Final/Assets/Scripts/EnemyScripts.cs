@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyScripts : MonoBehaviour
 {
+    public int CoinsCount;
     public float life = 100;
     public float attackDamage = 1;
    // public float attackDistance;
@@ -37,7 +38,7 @@ public class EnemyScripts : MonoBehaviour
             }
             else
             {
-                for(int i = 0; i < 7; i++)
+                for(int i = 0; i < CoinsCount; i++)
                 {
                     CoinPosition = Random.Range(-2, 2);
                     Instantiate(Coin, new Vector3(transform.position.x + CoinPosition, -8.6f, -7f), Quaternion.identity);

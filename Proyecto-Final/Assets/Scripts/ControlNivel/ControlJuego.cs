@@ -15,7 +15,7 @@ public class ControlJuego : MonoBehaviour
     }
 
     public static NivelActual Nivel;
-    public static int NivelesLogrados = 0;
+    public static int NivelesLogrados = 0, level = 1;
     List<GameObject> Niveles;
     // Start is called before the first frame update
     void Start()

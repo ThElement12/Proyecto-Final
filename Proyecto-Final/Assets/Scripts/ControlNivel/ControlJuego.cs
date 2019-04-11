@@ -13,6 +13,7 @@ public class ControlJuego : MonoBehaviour
         Nivel3,
         BossFinal
     }
+
     public static NivelActual Nivel;
     public static int NivelesLogrados = 0;
     List<GameObject> Niveles;

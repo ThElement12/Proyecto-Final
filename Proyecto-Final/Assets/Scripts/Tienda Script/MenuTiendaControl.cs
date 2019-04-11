@@ -1,58 +1,73 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuTiendaControl : MonoBehaviour
 {
+    
     TextMesh info;
-    Vector3 PosicionInfo;
+    GameObject PanelCompra;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        PanelCompra = GameObject.FindGameObjectWithTag("PanelCompra");
+        info = GameObject.Find("Info").GetComponent<TextMesh>();
+    }
     void Start()
     {
-        info = GameObject.Find("Info").GetComponent<TextMesh>();
+        PanelCompra.SetActive(false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       PosicionInfo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        PosicionInfo.x += 0.5f;
-        PosicionInfo.y += 0.1f;
-        PosicionInfo.z = 0;
+
     }
-    private void OnMouseOver()
+    private void OnMouseDown()
     {
         if (gameObject.name == "Armadura")
         {
-            info.gameObject.transform.position = PosicionInfo;
-            info.text = "Incrementa la armadura base en +5";
-            
-        }
-        else if(gameObject.name == "Pocion")
-        {
-            info.gameObject.transform.position = PosicionInfo;
-            info.text = "Restaura un 10% de la vida actual";
+            PanelCompra.SetActive(true);
+            PanelCompra.transform.GetChild(6).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            info.text = "Incrementa la armadura base en +5. Se compra una vez";
 
         }
-        else if(gameObject.name == "Lagrima")
+        else if (gameObject.name == "Pocion")
         {
-            info.gameObject.transform.position = PosicionInfo;
-            info.text = "Lagrima misteriosa. Sus beneficios son desconocidos.\n Dicen que proviene de una Diosa";
+            PanelCompra.SetActive(true);
+            PanelCompra.transform.GetChild(6).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            info.text = "Restaura un 10% de la vida actual.\n Solo se puede llevar un maximo de 3";
+
         }
-        else if(gameObject.name == "Amuleto")
+        else if (gameObject.name == "Lagrima")
         {
-            info.gameObject.transform.position = PosicionInfo;
-            info.text = "Increible amuleto, permite manejar el elemento fuego";
+            PanelCompra.SetActive(true);
+            PanelCompra.transform.GetChild(6).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            info.text = "Lagrima misteriosa. Sus beneficios son desconocidos.\n Dicen que proviene de una Diosa.\n Se compra una vez";
+        }
+        else if (gameObject.name == "Amuleto")
+        {
+            PanelCompra.SetActive(true);
+            PanelCompra.transform.GetChild(6).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            info.text = "Increible amuleto, permite manejar el elemento fuego.\n Se compra una vez";
 
         }
         else
         {
-            ///Salir
+
+            SceneManager.LoadScene("MapaPrincipal");
         }
+    }
+    private void OnMouseOver()
+    {
+        
 
     }
     private void OnMouseExit()
     {
-        info.text = "";
+        
     }
 }

@@ -72,7 +72,7 @@ public class ControlJuego : MonoBehaviour
                                 break;
                         }
                     }
-                state = GameState.Playing;
+                //state = GameState.Playing;
                     break;
             case GameState.Playing:
                 

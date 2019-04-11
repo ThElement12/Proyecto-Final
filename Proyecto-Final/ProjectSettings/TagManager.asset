@@ -20,7 +20,7 @@ TagManager:
   - Flying Enemy Fire
   - Range Enemy Fire
   - Nivel
-  - Exit
+  - PanelCompra
   layers:
   - Default
   - TransparentFX

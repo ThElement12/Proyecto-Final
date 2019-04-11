@@ -46,6 +46,9 @@ public class NivelControl : MonoBehaviour
             case "Tienda":
                 SceneManager.LoadScene("Tienda");
                 break;
+            case "Dificultad":
+
+                break;
             default:
                 break;
         }

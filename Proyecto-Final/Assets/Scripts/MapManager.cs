@@ -25,7 +25,7 @@ public class MapManager : MonoBehaviour
             //{';', lastWall },
             //{'f', firstWall },
             //{' ', nullWall }
-        };
+        }; 
     }
 
     // Start is called before the first frame update

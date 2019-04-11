@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Class;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,6 +22,9 @@ public class ControlJuego : MonoBehaviour
         Playing,
         LevelPass
     }
+
+    public static List<Items> Inventario = new List<Items> { new Items("Armadura", 0), new Items("Pocion", 0), new Items("Lagrima", 0), new Items("Amuleto", 0) };
+
 
     public static int money;
     public static GameState state;

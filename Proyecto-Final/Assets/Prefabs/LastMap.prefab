@@ -10857,7 +10857,12 @@ PrefabInstance:
     - target: {fileID: 2396927418608041884, guid: 5a29339c3027a8c458cc6b5ec1690d6a,
         type: 3}
       propertyPath: m_Name
-      value: lastWall (1)
+      value: nextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396927418608041884, guid: 5a29339c3027a8c458cc6b5ec1690d6a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Exit
       objectReference: {fileID: 0}
     - target: {fileID: 2396927418608041882, guid: 5a29339c3027a8c458cc6b5ec1690d6a,
         type: 3}

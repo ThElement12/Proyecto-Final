@@ -21,6 +21,7 @@ TagManager:
   - Range Enemy Fire
   - Nivel
   - PanelCompra
+  - Exit
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ public class SaveEstateManager : MonoBehaviour
     void Start()
     {
         CurrentGame = new PlayerStats();
-        RutaXML = Application.persistentDataPath + "/" + ControlJuego.UserName;
+        RutaXML = Application.persistentDataPath + "/Ninja";
         CurrentGame.UserName = ControlJuego.UserName;
         CurrentGame.NivelesLogrados = ControlJuego.NivelesLogrados;
         CurrentGame.Inventario = ControlJuego.Inventario;

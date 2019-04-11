@@ -19,7 +19,7 @@ public class ItemsUsage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             item = GameObject.Find("Item2");
-            if (item.GetComponent<SpriteRenderer>().sprite.name == "item2" && ControlJuego.Inventario[1].Cantidad > 0 && player.GetComponent<CharacterMovement>().Vida < 90) ;
+            if (item.GetComponent<SpriteRenderer>().sprite.name == "item2" && ControlJuego.Inventario[1].Cantidad > 0 && player.GetComponent<CharacterMovement>().Vida < 90) 
             {
                 ControlJuego.Inventario[1].Cantidad --; 
                 player.GetComponent<CharacterMovement>().Vida += 10;

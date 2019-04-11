@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ControlJuego : MonoBehaviour
 {
+    public static int level;
     // Start is called before the first frame update
     void Start()
     {

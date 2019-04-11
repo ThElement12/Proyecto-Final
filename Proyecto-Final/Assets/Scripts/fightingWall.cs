@@ -35,7 +35,7 @@ public class fightingWall : MonoBehaviour
         if(tag == "Exit")
         {
             //pasa siguiente Nivel
-            ControlJuego.level++;
+            ControlJuego.state = ControlJuego.GameState.LevelPass;
 
         }
     }

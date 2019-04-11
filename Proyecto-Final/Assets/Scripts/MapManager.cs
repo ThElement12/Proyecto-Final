@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    public GameObject fightingFloor, firstFloor, lastFloor, normalFloor;
+    public GameObject fightingFloor, firstFloor, lastFloor, normalFloor, Boss;
     public float floorsize;
 
     Dictionary<char, GameObject> cellPrefabs;
@@ -20,6 +20,7 @@ public class MapManager : MonoBehaviour
             {'-', firstFloor },
             {'/', lastFloor },
             {'*', normalFloor },
+            {'=', Boss }
             //{'E', fightingWallexit },
             //{';', lastWall },
             //{'f', firstWall },
@@ -31,7 +32,7 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         level = new XmlDocument();
-        level.LoadXml(Resources.Load<TextAsset>("level1").text);
+        level.LoadXml(Resources.Load<TextAsset>("level" + ControlJuego.level.ToString()).text);
         LoadMap();
         
     }

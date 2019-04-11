@@ -8,14 +8,16 @@ public class EnemyGen : MonoBehaviour
     public GameObject BigEnemy, NormalEnemy,FlyingEnemy, RangeEnemy;
     public bool isGenerating = false;
     bool isFight;
-    int normalEnemyC = 3, bigEnemyC = 1, flyingEnemyC = 2, rangeEnemyC = 1, EnemyCount = 8;
+    int normalEnemyC = 3, bigEnemyC = 1, flyingEnemyC = 2, rangeEnemyC = 1, EnemyCount;
 
     GameObject actualwall;
     int count = 30;
     // Start is called before the first frame update
     void Start()
     {
+        bigEnemyC = Mathf.RoundToInt(bigEnemyC * ControlJuego.NivelesLogrados / 2) < 1 ? 1 : Mathf.RoundToInt(bigEnemyC * ControlJuego.NivelesLogrados / 2);
         player = GameObject.FindGameObjectWithTag("Player");
+        EnemyCount = normalEnemyC + bigEnemyC + flyingEnemyC + rangeEnemyC;
     }
 
     // Update is called once per frame

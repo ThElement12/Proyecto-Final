@@ -41,7 +41,7 @@ public class ControlJuego : MonoBehaviour
     public static NivelActual Nivel;
     public static int level = 1;
     public static List<int> NivelesPorDificultad = new List<int> { 0, 0, 0, 0 };
-    bool Pass = true;
+    bool Pass = false;
     
     float playerLife;
     public static int indiceNivelActual = 0;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource HoverSound, ClickSound, Fondo;
-    static bool play = true;
+    public static bool play = true;
 
 
     public void PlayHoverSound()

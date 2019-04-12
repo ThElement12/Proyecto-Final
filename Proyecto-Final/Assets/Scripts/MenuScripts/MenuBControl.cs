@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MenuBControl : MonoBehaviour
 {
+
     const float SCALEFACTOR = 1.2f;
-    AudioManager _audioManager;
+    private AudioManager _audioManager;
+   
+
     private void Awake()
     {
+
         _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        
     }
+   
     private void OnMouseEnter()
     {
         _audioManager.PlayHoverSound();
@@ -29,12 +35,24 @@ public class MenuBControl : MonoBehaviour
         switch (gameObject.name)
         {
             case"Play":
-                SceneManager.LoadScene("MapaPrincipal");
+                Options.Items2.SetActive(true);
+                Options.Items1.SetActive(false);
+                SaveEstateManager.LoadState();
+                break;
+            case "Nuevo Juego":
+                SceneManager.LoadScene("MenuPrincipal");
+                break;
+            case "Continuar":
+                SceneManager.LoadScene("MenuPrincipal");
                 break;
             case "Options":
                 break;
             case "Credits":
                 SceneManager.LoadScene("Credits");
+                break;
+            case "Volver":
+                Options.Items2.SetActive(false);
+                Options.Items1.SetActive(true);
                 break;
             case "Quit":
                 Application.Quit(0);

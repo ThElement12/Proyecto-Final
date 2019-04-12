@@ -11,6 +11,7 @@ public class SaveEstateManager : MonoBehaviour
     public static PlayerStats CurrentGame;
     public static bool Guardado = false;
     public static bool Cargado = false;
+    static TextMesh Continue;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,8 @@ public class SaveEstateManager : MonoBehaviour
     }
     public static void LoadState()
     {
+        Continue = GameObject.Find("Continuar").GetComponent<TextMesh>();
+
         DataContractSerializer dcSerializer = new DataContractSerializer(typeof(PlayerStats));
         try
         {
@@ -38,9 +41,13 @@ public class SaveEstateManager : MonoBehaviour
             {
                 CurrentGame = (PlayerStats)dcSerializer.ReadObject(fstream);
             }
+            Continue.gameObject.GetComponent<BoxCollider>().enabled = false;
+            Continue.color = new Color(164, 33, 33);
         }
         catch (FileNotFoundException)
         {
+            Continue.gameObject.GetComponent<BoxCollider>().enabled = false;
+            Continue.color = new Color(194, 194, 194,255);
 
             throw;
         }

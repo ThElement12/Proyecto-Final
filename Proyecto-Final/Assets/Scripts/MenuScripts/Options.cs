@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class Options : MonoBehaviour
 {
     GameObject Canvas;
-
+    public static GameObject Items1, Items2;
     // Start is called before the first frame update
     void Start()
     {
         Canvas = GameObject.Find("Canvas");
         Canvas.SetActive(false);
+        Items1 = GameObject.Find("MenuItems");
+        Items2 = GameObject.Find("MenuItems2");
+
+        Items2.SetActive(false);
 
     }
 
@@ -27,5 +31,6 @@ public class Options : MonoBehaviour
     {
         Canvas.SetActive(isTrue);
     }
+    
 
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 242879908618188416}
   m_Layer: 0
   m_Name: mountain2
-  m_TagString: Untagged
+  m_TagString: mountain2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myChild: {fileID: 4102061679958731549}
-  speed: -0.4
+  speed: -0.7
 --- !u!1 &4102061680483233839
 GameObject:
   m_ObjectHideFlags: 0

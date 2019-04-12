@@ -22,6 +22,9 @@ TagManager:
   - Nivel
   - PanelCompra
   - Exit
+  - mountain1
+  - mountain2
+  - cloud
   layers:
   - Default
   - TransparentFX

@@ -34,7 +34,7 @@ public class ControlJuego : MonoBehaviour
 
     public static List<Items> Inventario = new List<Items> { new Items("Armadura", 1), new Items("Pocion", 2), new Items("Lagrima", 1), new Items("Amuleto", 1) };
 
-    public static string UserName;
+    public static string UserName = "";
     public static int money;
     public static GameState state;
     public static DificultadActual Dificultad;
@@ -108,6 +108,7 @@ public class ControlJuego : MonoBehaviour
                 state = GameState.LevelSelect;
                 Nivel = NivelActual.Nivel0;
                 SceneManager.LoadScene("MapaPrincipal");
+                
                 break;
             default:
                 break;

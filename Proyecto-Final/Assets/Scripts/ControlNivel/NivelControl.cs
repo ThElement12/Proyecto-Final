@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class NivelControl : MonoBehaviour
 {
     int level;
-    GameObject PanelDificultad;
+    GameObject PanelDificultad, PanelSalir;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,12 @@ public class NivelControl : MonoBehaviour
         {
             PanelDificultad = GameObject.Find("PanelDificultad");
             PanelDificultad.SetActive(false);
+
+        }
+        else if(name == "Salir")
+        {
+            PanelSalir = GameObject.Find("PanelSalir");
+            PanelSalir.SetActive(false);
 
         }
         else if (name != "Nivel 1" && name != "Tienda")
@@ -31,6 +38,10 @@ public class NivelControl : MonoBehaviour
             case "Dificultad":
                 PanelDificultad.SetActive(true);
                 break;
+            case "Salir":
+                PanelSalir.SetActive(true);
+                break;
+
             default:
                 SwitchNivel();
                 break;

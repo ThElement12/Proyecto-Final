@@ -10,7 +10,7 @@ public class BotonPanel : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(name == "BotonComprar")
+        if(name == "BotonComprar" || name == "Si" || name == "No")
         {
             GetComponent<SpriteRenderer>().sprite = Presionado;
         }
@@ -45,8 +45,21 @@ public class BotonPanel : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = Soltado;
 
         }
+        else if(name == "Si")
+        {
+            SaveEstateManager.SaveState();
+            GetComponent<SpriteRenderer>().sprite = Soltado;
+        }
+        else if(name == "No")
+        {
+            transform.parent.gameObject.SetActive(false);
+            GetComponent<SpriteRenderer>().sprite = Soltado;
+        }
         else
             transform.parent.gameObject.SetActive(false);
+
+
+
 
 
     }

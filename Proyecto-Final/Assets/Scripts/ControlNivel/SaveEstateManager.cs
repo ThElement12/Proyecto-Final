@@ -20,13 +20,7 @@ public class SaveEstateManager : MonoBehaviour
         CurrentGame.NivelesLogrados = ControlJuego.NivelesPorDificultad;
         CurrentGame.Inventario = ControlJuego.Inventario;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
+    
     public static void SaveState()
     {
         DataContractSerializer dcSerializer = new DataContractSerializer(typeof(PlayerStats));

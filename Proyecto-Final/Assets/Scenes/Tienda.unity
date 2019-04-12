@@ -2218,7 +2218,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0bfac8f80cbb50649ab1ce9592231a78, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -2509,6 +2509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoverSound: {fileID: 1923100415}
   ClickSound: {fileID: 1923100416}
+  Fondo: {fileID: 1923100414}
 --- !u!1 &2008638605
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class FinalFightScript : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("BigEnemy") == null)
         {
             ControlJuego.state = ControlJuego.GameState.LevelSelect;
+            ControlJuego.Nivel = ControlJuego.NivelActual.Nivel0;
             SceneManager.LoadScene("MapaPrincipal");
         }
     }

@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5528507862368949386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493503317261404762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb7a87154bc50642863d0025e11e86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2321588364490522050
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,18 +114,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 118.06619, y: 8.917389, z: 3}
   m_Center: {x: 64.04277, y: -46.706066, z: 1}
---- !u!114 &5528507862368949386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493503317261404762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efb7a87154bc50642863d0025e11e86c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6522779893524442594
 GameObject:
   m_ObjectHideFlags: 0
@@ -10960,7 +10960,7 @@ PrefabInstance:
     - target: {fileID: 2396927418608041882, guid: 5a29339c3027a8c458cc6b5ec1690d6a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2396927418608041882, guid: 5a29339c3027a8c458cc6b5ec1690d6a,
         type: 3}

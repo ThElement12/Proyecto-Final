@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3886044740290813963}
   - component: {fileID: 2790762940077618686}
   m_Layer: 0
-  m_Name: BossFinal
+  m_Name: MapaFinal
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,6 +102,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 118.06619, y: 8.917389, z: 3}
   m_Center: {x: 64.04277, y: -46.706066, z: 1}
+--- !u!114 &5528507862368949386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493503317261404762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb7a87154bc50642863d0025e11e86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6522779893524442594
 GameObject:
   m_ObjectHideFlags: 0
@@ -11002,6 +11014,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a29339c3027a8c458cc6b5ec1690d6a, type: 3}
+--- !u!1 &1493503317261404762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2396927418608041884, guid: 5a29339c3027a8c458cc6b5ec1690d6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3889532910268413382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1493503317261404764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2396927418608041882, guid: 5a29339c3027a8c458cc6b5ec1690d6a,

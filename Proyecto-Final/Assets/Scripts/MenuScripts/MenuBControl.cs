@@ -8,6 +8,7 @@ public class MenuBControl : MonoBehaviour
 
     const float SCALEFACTOR = 1.2f;
     private AudioManager _audioManager;
+    public static bool newGame = false;
    
 
     private void Awake()
@@ -40,9 +41,11 @@ public class MenuBControl : MonoBehaviour
                 SaveEstateManager.LoadState();
                 break;
             case "Nuevo Juego":
+                newGame = true;
                 SceneManager.LoadScene("MapaPrincipal");
                 break;
             case "Continuar":
+                
                 SceneManager.LoadScene("MapaPrincipal");
                 break;
             case "Options":

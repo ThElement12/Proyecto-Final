@@ -9,8 +9,8 @@ public class SaveEstateManager : MonoBehaviour
 {
     static string RutaXML;
     public static PlayerStats CurrentGame;
-    public static bool Guardado = false;
-    public static bool Cargado = false;
+    public static bool Guardado;
+    public static bool Cargado;
     static TextMesh Continue;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,8 @@ public class SaveEstateManager : MonoBehaviour
         CurrentGame.UserName = ControlJuego.UserName;
         CurrentGame.NivelesLogrados = ControlJuego.NivelesPorDificultad;
         CurrentGame.Inventario = ControlJuego.Inventario;
+        Guardado = false;
+        Cargado = false;
     }
     
     public static void SaveState()
@@ -27,7 +29,17 @@ public class SaveEstateManager : MonoBehaviour
         DataContractSerializer dcSerializer = new DataContractSerializer(typeof(PlayerStats));
         using(FileStream fstream = new FileStream(RutaXML, FileMode.Create))
         {
-            dcSerializer.WriteObject(fstream,CurrentGame);
+            if (MenuBControl.newGame)
+            {
+                dcSerializer.WriteObject(fstream, new PlayerStats());
+                MenuBControl.newGame = false;
+
+            }
+            else
+            {
+                dcSerializer.WriteObject(fstream, CurrentGame);
+            }
+            
         }
     }
     public static void LoadState()
@@ -40,9 +52,11 @@ public class SaveEstateManager : MonoBehaviour
             using(FileStream fstream = new FileStream(RutaXML, FileMode.Open))
             {
                 CurrentGame = (PlayerStats)dcSerializer.ReadObject(fstream);
+                Cargado = true;
             }
+            Continue.color = new Color(164, 33, 33,255);
             Continue.gameObject.GetComponent<BoxCollider>().enabled = true;
-            Continue.color = new Color(164, 33, 33);
+            
         }
         catch (FileNotFoundException)
         {

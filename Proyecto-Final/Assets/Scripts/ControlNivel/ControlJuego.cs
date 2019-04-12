@@ -63,6 +63,14 @@ public class ControlJuego : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (SaveEstateManager.Cargado)
+        {
+            Inventario = SaveEstateManager.CurrentGame.Inventario.ToList();
+            NivelesPorDificultad = SaveEstateManager.CurrentGame.NivelesLogrados.ToList();
+            SaveEstateManager.Cargado = false;
+
+
+        }
         switch (state)
         {
             case GameState.LevelSelect:

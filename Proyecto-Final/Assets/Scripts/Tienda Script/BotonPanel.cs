@@ -2,19 +2,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BotonPanel : MonoBehaviour
 {
     public Sprite Presionado;
     public Sprite Soltado;
+    GameObject AudioManager;
 
-    private void OnMouseDown()
+
+    private void Start()
+    {
+      AudioManager = GameObject.Find("AudioManager");
+
+    }
+
+    private void OnMouseDown()  
     {
         if(name == "BotonComprar" || name == "Si" || name == "No")
         {
             GetComponent<SpriteRenderer>().sprite = Presionado;
         }
+        AudioManager.GetComponent<AudioManager>().PlayClickedSound();
+
     }
+   
     private void OnMouseUp()
     {
         if(name == "BotonComprar")
@@ -49,11 +61,13 @@ public class BotonPanel : MonoBehaviour
         {
             SaveEstateManager.SaveState();
             GetComponent<SpriteRenderer>().sprite = Soltado;
+            SceneManager.LoadScene("MenuPrincipal");
         }
         else if(name == "No")
         {
             transform.parent.gameObject.SetActive(false);
             GetComponent<SpriteRenderer>().sprite = Soltado;
+            SceneManager.LoadScene("MenuPrincipal");
         }
         else
             transform.parent.gameObject.SetActive(false);

@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class NivelControl : MonoBehaviour
 {
     int level;
-    GameObject PanelDificultad, PanelSalir;
+    GameObject PanelDificultad, PanelSalir, AudioManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager = GameObject.Find("AudioManager");
         if(name == "Dificultad")
         {
             PanelDificultad = GameObject.Find("PanelDificultad");
@@ -27,7 +28,10 @@ public class NivelControl : MonoBehaviour
            level = GetComponent<UnlockedLevel>().level;
         
     }
-    
+    private void OnMouseDown()
+    {
+        AudioManager.GetComponent<AudioManager>().PlayClickedSound();
+    }
     private void OnMouseUp()
     {
         switch (name)
@@ -50,6 +54,8 @@ public class NivelControl : MonoBehaviour
     }
     private void OnMouseEnter()
     {
+        AudioManager.GetComponent<AudioManager>().PlayHoverSound();
+        
         transform.localScale *= 1.2f;
     }
     private void OnMouseExit()

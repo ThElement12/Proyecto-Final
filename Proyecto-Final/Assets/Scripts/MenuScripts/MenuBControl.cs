@@ -40,10 +40,10 @@ public class MenuBControl : MonoBehaviour
                 SaveEstateManager.LoadState();
                 break;
             case "Nuevo Juego":
-                SceneManager.LoadScene("MenuPrincipal");
+                SceneManager.LoadScene("MapaPrincipal");
                 break;
             case "Continuar":
-                SceneManager.LoadScene("MenuPrincipal");
+                SceneManager.LoadScene("MapaPrincipal");
                 break;
             case "Options":
                 break;

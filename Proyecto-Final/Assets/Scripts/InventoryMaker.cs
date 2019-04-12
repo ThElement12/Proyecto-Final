@@ -15,7 +15,7 @@ public class InventoryMaker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < /*transform.childCount*/4; i++)
+        for (int i = 0; i < 4; i++)
         {
             if (ControlJuego.Inventario[i].Nombre == "Pocion" && ControlJuego.Inventario[i].Cantidad > 0)
             {

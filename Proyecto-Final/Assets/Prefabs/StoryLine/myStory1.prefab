@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 335975382342897047}
   - component: {fileID: 335975382342897046}
   - component: {fileID: 335975382342897045}
+  - component: {fileID: 121298713}
   m_Layer: 0
   m_Name: myStory1
   m_TagString: Untagged
@@ -49,7 +50,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: d6e38cdf64b051c498271e664b68dd78, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,13 +78,12 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335975382342897044}
-  m_Text: "Hace mucho tiempo las 7 naciones viv\xEDan en paz y \r\narmon\xEDa, hasta
-    que los ogros atacaron. Solo \r\nel elegido pod\xEDa detenerlos, pero cuando m\xE1s
-    lo\r\nnecesitaban desapareci\xF3.\r\n\r\nDespu\xE9s de d\xE9cadas el gran h\xE9roe
-    ha vuelto\nde la aldea ninja para\r ponerle fin a el \nsufrimiento que el rey
-    de los\r ogros caus\xF3.\r"
+  m_Text: "Hace mucho tiempo las 7 naciones vivian en paz y \r\narmonia, hasta que
+    los ogros atacaron. Solo \r\nel elegido podia detenerlos, pero cuando mas lo\r\nnecesitaban
+    desaparecio.\r\n\r\nDespues de decadas el gran heroe ha vuelto\nde la aldea ninja
+    para\r ponerle fin a el \nsufrimiento que el rey de los\r ogros causo.\r"
   m_OffsetZ: 0
-  m_CharacterSize: 0.01
+  m_CharacterSize: 0.013
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 0
@@ -91,7 +91,19 @@ TextMesh:
   m_FontSize: 500
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: d6e38cdf64b051c498271e664b68dd78, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &121298713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335975382342897044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80279fd1a5136d741ae22105efefd359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

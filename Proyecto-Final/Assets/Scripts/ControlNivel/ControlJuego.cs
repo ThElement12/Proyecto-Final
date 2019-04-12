@@ -79,23 +79,27 @@ public class ControlJuego : MonoBehaviour
                     case DificultadActual.MuyFacil:
                         SwitchDeNivel();
                         indiceNivelActual = 0;
-                        player.GetComponent<CharacterMovement>().attackDamage = 100;
+                        if(SceneManager.GetActiveScene().name != "Tienda")
+                            player.GetComponent<CharacterMovement>().attackDamage = 100;
                         
                         break;
                     case DificultadActual.Facil:
                         SwitchDeNivel();
                         indiceNivelActual = 1;
-                        player.GetComponent<CharacterMovement>().attackDamage = 75;
+                        if (SceneManager.GetActiveScene().name != "Tienda")
+                            player.GetComponent<CharacterMovement>().attackDamage = 75;
                         break;
                     case DificultadActual.Medio:
                         SwitchDeNivel();
                         indiceNivelActual = 2;
-                        player.GetComponent<CharacterMovement>().attackDamage = 50;
+                        if (SceneManager.GetActiveScene().name != "Tienda")
+                            player.GetComponent<CharacterMovement>().attackDamage = 50;
                         break;
                     case DificultadActual.Dificil:
                         SwitchDeNivel();
                         indiceNivelActual = 3;
-                        player.GetComponent<CharacterMovement>().attackDamage = 25;
+                        if (SceneManager.GetActiveScene().name != "Tienda")
+                            player.GetComponent<CharacterMovement>().attackDamage = 25;
                         break;
                     default:
                         break;

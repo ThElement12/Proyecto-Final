@@ -8,6 +8,7 @@ using UnityEngine;
 public class SaveEstateManager : MonoBehaviour
 {
     static string RutaXML;
+    static string RutaDefault;
     public static PlayerStats CurrentGame;
     public static bool Guardado;
     public static bool Cargado;
@@ -15,9 +16,16 @@ public class SaveEstateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        RutaDefault = Application.persistentDataPath + "/Ninja.xml";
+
         CurrentGame = new PlayerStats();
-        RutaXML = Application.persistentDataPath + "/Ninja.xml";
-         CurrentGame.UserName = ControlJuego.UserName;
+        if (ControlJuego.Ruta == "")
+        {
+            RutaXML = RutaDefault;
+        }
+        else
+            RutaXML = ControlJuego.Ruta + "/Ninja.xml";
+        
         CurrentGame.NivelesLogrados = ControlJuego.NivelesPorDificultad;
         CurrentGame.Inventario = ControlJuego.Inventario;
         CurrentGame.Monedas = ControlJuego.money;
@@ -45,7 +53,6 @@ public class SaveEstateManager : MonoBehaviour
             {
 
                 CurrentGame = (PlayerStats)dcSerializer.ReadObject(fstream);
-                ControlJuego.UserName = CurrentGame.UserName;
                 ControlJuego.NivelesPorDificultad = CurrentGame.NivelesLogrados;
                 ControlJuego.Inventario = CurrentGame.Inventario;
                 ControlJuego.money = CurrentGame.Monedas;

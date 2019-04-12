@@ -12,8 +12,7 @@ namespace Assets.Scripts.Class
     {
         [DataMember]
         public bool Pass { get; set; }
-        [DataMember]
-        public string UserName { get; set; }
+        
         [DataMember]
         public List<int> NivelesLogrados { get; set; }
         [DataMember]
@@ -23,7 +22,7 @@ namespace Assets.Scripts.Class
         public PlayerStats()
         {
             Pass = false;
-            UserName = "";
+            
             NivelesLogrados = new List<int> { 0, 0, 0, 0 };
             Inventario = new List<Items> { new Items("Armadura", 0), new Items("Pocion", 0), new Items("Lagrima", 0), new Items("Amuleto", 0) };
             Monedas = 0;

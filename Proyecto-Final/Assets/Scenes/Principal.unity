@@ -1001,8 +1001,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354612341}
-  m_Text: "He venido a derrotarte rey Ogro!!!\ny a devolver la paz \na las naciones!!
-    >:{("
+  m_Text: "He venido a derrotarte rey Ogro!!!\ny a devolver la paz \na las naciones!!"
   m_OffsetZ: 0
   m_CharacterSize: 0.01
   m_LineSpacing: 1

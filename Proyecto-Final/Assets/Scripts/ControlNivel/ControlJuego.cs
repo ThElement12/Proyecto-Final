@@ -34,7 +34,7 @@ public class ControlJuego : MonoBehaviour
 
     public static List<Items> Inventario = new List<Items> { new Items("Armadura", 0), new Items("Pocion", 0), new Items("Lagrima", 0), new Items("Amuleto", 0) };
 
-    public static string UserName = "";
+    public static string Ruta = "";
     public static int money;
     public static GameState state;
     public static DificultadActual Dificultad;
@@ -169,7 +169,6 @@ public class ControlJuego : MonoBehaviour
     public static void Reset()
     {
         Pass = false;
-        UserName = "";
         NivelesPorDificultad = new List<int> { 0, 0, 0, 0 };
         Inventario = new List<Items> { new Items("Armadura", 0), new Items("Pocion", 0), new Items("Lagrima", 0), new Items("Amuleto", 0) };
         money = 0;

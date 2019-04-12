@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class STL1 : MonoBehaviour
 {
     Vector3 position = Vector3.zero;
-    float speed = 0.5f;
+    float speed = 0.6f;
     // Start is called before the first frame update
     void Start()
     {
-        position.y = speed * Time.deltaTime;//:v feliz cabron 
+        position.y = speed * Time.deltaTime;
     }
 
     // Update is called once per frame

@@ -16,7 +16,7 @@ public class SaveEstateManager : MonoBehaviour
     void Start()
     {
         CurrentGame = new PlayerStats();
-        RutaXML = Application.persistentDataPath + "/Ninja";
+        RutaXML = Application.persistentDataPath + "/Ninja.xml";
         CurrentGame.UserName = ControlJuego.UserName;
         CurrentGame.NivelesLogrados = ControlJuego.NivelesPorDificultad;
         CurrentGame.Inventario = ControlJuego.Inventario;
@@ -41,15 +41,15 @@ public class SaveEstateManager : MonoBehaviour
             {
                 CurrentGame = (PlayerStats)dcSerializer.ReadObject(fstream);
             }
-            Continue.gameObject.GetComponent<BoxCollider>().enabled = false;
+            Continue.gameObject.GetComponent<BoxCollider>().enabled = true;
             Continue.color = new Color(164, 33, 33);
         }
         catch (FileNotFoundException)
         {
             Continue.gameObject.GetComponent<BoxCollider>().enabled = false;
-            Continue.color = new Color(194, 194, 194,255);
+            Continue.color = new Color(194, 194, 194, 255);
 
-            throw;
+            
         }
 
     }

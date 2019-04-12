@@ -16,11 +16,19 @@ public class STL1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         transform.Translate(position);
-        if (transform.position.y > 14.79f)
-            SceneManager.LoadScene("Principal");
-            
+    }
 
+    private void OnBecameInvisible()
+    {
+        switch (name)
+        {
+            case "Credits":
+                SceneManager.LoadScene("MenuPrincipal");
+                break;
+            case "myStory1":
+                SceneManager.LoadScene("Principal");
+                break;
+        }
     }
 }

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource HoverSound, ClickSound;
+    public AudioSource HoverSound, ClickSound, Fondo;
+    static bool play = true;
 
 
     public void PlayHoverSound()
     {
-        HoverSound.Play();
+        if(play)
+            HoverSound.Play();
     }
 
     public void PlayClickedSound()
     {
-        ClickSound.Play();
+        if(play)
+            ClickSound.Play();
     }
   
 }

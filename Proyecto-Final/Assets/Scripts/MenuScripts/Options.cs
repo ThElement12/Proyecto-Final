@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
-    GameObject Canvas;
+    static GameObject Canvas;
     public static GameObject Items1, Items2;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class Options : MonoBehaviour
         //MenuControl.IniciarOpciones(true);
     }
 
-    public void showCanvas(bool isTrue = true)
+    static public void showCanvas(bool isTrue = true)
     {
         Canvas.SetActive(isTrue);
     }

@@ -46,6 +46,9 @@ public class MenuBControl : MonoBehaviour
                 SceneManager.LoadScene("MapaPrincipal");
                 break;
             case "Options":
+                Options.Items2.SetActive(false);
+                Options.Items1.SetActive(false);
+                Options.showCanvas(true);
                 break;
             case "Credits":
                 SceneManager.LoadScene("Credits");

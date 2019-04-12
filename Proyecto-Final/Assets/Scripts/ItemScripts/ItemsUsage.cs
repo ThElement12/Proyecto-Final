@@ -42,7 +42,7 @@ public class ItemsUsage : MonoBehaviour
                         player.GetComponent<CharacterMovement>().Armor += 5;
                         break;
                     case 2:
-                        player.GetComponent<CharacterMovement>().attackDamage += 20;
+                        CharacterMovement.attackDamage += 20;
                         break;
                 }
             }

@@ -19,7 +19,7 @@ public class FireControl : MonoBehaviour
              GetComponent<SpriteRenderer>().flipX = true;
              velocidad *= -1;
             }
-            Damage = Jugador.GetComponent<CharacterMovement>().attackDamage * 2;
+            Damage = CharacterMovement.attackDamage * 2;
         }
         
     }

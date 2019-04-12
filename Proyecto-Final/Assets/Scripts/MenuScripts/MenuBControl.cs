@@ -41,11 +41,12 @@ public class MenuBControl : MonoBehaviour
                 SaveEstateManager.LoadState();
                 break;
             case "Nuevo Juego":
+                ControlJuego.Reset();
                 newGame = true;
                 SceneManager.LoadScene("MapaPrincipal");
                 break;
             case "Continuar":
-                
+                SaveEstateManager.LoadState();
                 SceneManager.LoadScene("MapaPrincipal");
                 break;
             case "Options":
@@ -64,5 +65,6 @@ public class MenuBControl : MonoBehaviour
                 Application.Quit(0);
                 break;
         }
+        gameObject.transform.localScale /= SCALEFACTOR;
     }
 }

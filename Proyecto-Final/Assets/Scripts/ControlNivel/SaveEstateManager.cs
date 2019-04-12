@@ -17,29 +17,21 @@ public class SaveEstateManager : MonoBehaviour
     {
         CurrentGame = new PlayerStats();
         RutaXML = Application.persistentDataPath + "/Ninja.xml";
-        CurrentGame.UserName = ControlJuego.UserName;
+         CurrentGame.UserName = ControlJuego.UserName;
         CurrentGame.NivelesLogrados = ControlJuego.NivelesPorDificultad;
         CurrentGame.Inventario = ControlJuego.Inventario;
+        CurrentGame.Monedas = ControlJuego.money;
         Guardado = false;
         Cargado = false;
     }
+   
     
     public static void SaveState()
     {
         DataContractSerializer dcSerializer = new DataContractSerializer(typeof(PlayerStats));
         using(FileStream fstream = new FileStream(RutaXML, FileMode.Create))
         {
-            if (MenuBControl.newGame)
-            {
-                dcSerializer.WriteObject(fstream, new PlayerStats());
-                MenuBControl.newGame = false;
-
-            }
-            else
-            {
-                dcSerializer.WriteObject(fstream, CurrentGame);
-            }
-            
+            dcSerializer.WriteObject(fstream,CurrentGame);
         }
     }
     public static void LoadState()
@@ -51,12 +43,16 @@ public class SaveEstateManager : MonoBehaviour
         {
             using(FileStream fstream = new FileStream(RutaXML, FileMode.Open))
             {
+
                 CurrentGame = (PlayerStats)dcSerializer.ReadObject(fstream);
-                Cargado = true;
+                ControlJuego.UserName = CurrentGame.UserName;
+                ControlJuego.NivelesPorDificultad = CurrentGame.NivelesLogrados;
+                ControlJuego.Inventario = CurrentGame.Inventario;
+                ControlJuego.money = CurrentGame.Monedas;
+
             }
-            Continue.color = new Color(164, 33, 33,255);
             Continue.gameObject.GetComponent<BoxCollider>().enabled = true;
-            
+            Continue.color = new Color(164, 33, 33,255);
         }
         catch (FileNotFoundException)
         {

@@ -41,7 +41,7 @@ public class ControlJuego : MonoBehaviour
     public static NivelActual Nivel;
     public static int level = 1;
     public static List<int> NivelesPorDificultad = new List<int> { 0, 0, 0, 0 };
-    bool Pass = false;
+    public static bool Pass = false;
     
     float playerLife;
     public static int indiceNivelActual = 0;
@@ -79,27 +79,23 @@ public class ControlJuego : MonoBehaviour
                     case DificultadActual.MuyFacil:
                         SwitchDeNivel();
                         indiceNivelActual = 0;
-                        if(SceneManager.GetActiveScene().name != "Tienda")
-                            player.GetComponent<CharacterMovement>().attackDamage = 100;
+                            CharacterMovement.attackDamage = 100;
                         
                         break;
                     case DificultadActual.Facil:
                         SwitchDeNivel();
                         indiceNivelActual = 1;
-                        if (SceneManager.GetActiveScene().name != "Tienda")
-                            player.GetComponent<CharacterMovement>().attackDamage = 75;
+                            CharacterMovement.attackDamage = 75;
                         break;
                     case DificultadActual.Medio:
                         SwitchDeNivel();
                         indiceNivelActual = 2;
-                        if (SceneManager.GetActiveScene().name != "Tienda")
-                            player.GetComponent<CharacterMovement>().attackDamage = 50;
+                            CharacterMovement.attackDamage = 50;
                         break;
                     case DificultadActual.Dificil:
                         SwitchDeNivel();
                         indiceNivelActual = 3;
-                        if (SceneManager.GetActiveScene().name != "Tienda")
-                            player.GetComponent<CharacterMovement>().attackDamage = 25;
+                            CharacterMovement.attackDamage = 25;
                         break;
                     default:
                         break;
@@ -170,5 +166,13 @@ public class ControlJuego : MonoBehaviour
         }
 
     }
-    
+    public static void Reset()
+    {
+        Pass = false;
+        UserName = "";
+        NivelesPorDificultad = new List<int> { 0, 0, 0, 0 };
+        Inventario = new List<Items> { new Items("Armadura", 0), new Items("Pocion", 0), new Items("Lagrima", 0), new Items("Amuleto", 0) };
+        money = 0;
+    }
+
 }

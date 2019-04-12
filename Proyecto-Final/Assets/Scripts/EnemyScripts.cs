@@ -128,7 +128,7 @@ public class EnemyScripts : MonoBehaviour
     {
         if(other.tag == "Sword")
         {
-            life = Mathf.Clamp(life - other.transform.parent.gameObject.GetComponent<CharacterMovement>().attackDamage, 0, 100);
+            life = Mathf.Clamp(life - CharacterMovement.attackDamage, 0, 100);
         }
         
     }

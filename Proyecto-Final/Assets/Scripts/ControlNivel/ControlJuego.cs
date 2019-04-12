@@ -18,10 +18,10 @@ public class ControlJuego : MonoBehaviour
     }
     public enum DificultadActual
     {
-        MuyFacil,
-        Facil,
-        Medio,
-        Dificil
+        MuyFacil,//1
+        Facil,//2
+        Medio,//3
+        Dificil//4
     }
    
     public enum GameState
@@ -39,6 +39,7 @@ public class ControlJuego : MonoBehaviour
     public static DificultadActual Dificultad;
     public static NivelActual Nivel;
     public static int NivelesLogrados = 4, level = 1;
+    public static Nivel niveles = new Nivel()
     bool Pass = true;
     
     float playerLife;
@@ -58,6 +59,26 @@ public class ControlJuego : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (Dificultad)
+        {
+            case DificultadActual.MuyFacil:
+
+
+
+                break;
+            case DificultadActual.Facil:
+                break;
+            case DificultadActual.Medio:
+                break;
+            case DificultadActual.Dificil:
+                break;
+            default:
+                break;
+        }
+
+
+
+
         switch (state)
         {
            

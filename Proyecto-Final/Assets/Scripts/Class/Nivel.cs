@@ -11,10 +11,10 @@ namespace Assets.Scripts.Class
         public int Level { get; set; }
         public int Dificultad{ get; set; }
 
-        public Nivel(int Level,int Dificultad)
+        public Nivel(int Dificultad)
         {
-            this.Level = Level;
             this.Dificultad = Dificultad;
+            Level = 1;
         }
 
 

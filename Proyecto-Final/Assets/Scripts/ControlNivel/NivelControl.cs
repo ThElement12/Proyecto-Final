@@ -25,32 +25,6 @@ public class NivelControl : MonoBehaviour
     {
         switch (name)
         {
-            case "Nivel 1":
-                ControlJuego.Nivel = ControlJuego.NivelActual.Nivel1;
-                ControlJuego.state = ControlJuego.GameState.LevelSelect;
-                   
-                break;
-            case "Nivel 2":
-                if (ControlJuego.NivelesLogrados > level)
-                {
-                    ControlJuego.Nivel = ControlJuego.NivelActual.Nivel2;
-                    ControlJuego.state = ControlJuego.GameState.LevelSelect;
-                }
-                break;
-            case "Nivel 3":
-                if (ControlJuego.NivelesLogrados > level)
-                {
-                    ControlJuego.Nivel = ControlJuego.NivelActual.Nivel3;
-                    ControlJuego.state = ControlJuego.GameState.LevelSelect;
-                }
-                break;
-            case "Nivel 4":
-                if (ControlJuego.NivelesLogrados > level)
-                {
-                    ControlJuego.Nivel = ControlJuego.NivelActual.BossFinal;
-                    ControlJuego.state = ControlJuego.GameState.LevelSelect;
-                }
-                break;
             case "Tienda":
                 SceneManager.LoadScene("Tienda");
                 break;
@@ -58,6 +32,7 @@ public class NivelControl : MonoBehaviour
                 PanelDificultad.SetActive(true);
                 break;
             default:
+                SwitchNivel();
                 break;
         }
         
@@ -71,5 +46,38 @@ public class NivelControl : MonoBehaviour
         transform.localScale /= 1.2f;
         
     }
+    void SwitchNivel()
+    {
+        switch (name)
+        {
+            case "Nivel 1":
+                ControlJuego.Nivel = ControlJuego.NivelActual.Nivel1;
+                ControlJuego.state = ControlJuego.GameState.LevelSelect;
+
+                break;
+            case "Nivel 2":
+                if (ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] > level)
+                {
+                    ControlJuego.Nivel = ControlJuego.NivelActual.Nivel2;
+                    ControlJuego.state = ControlJuego.GameState.LevelSelect;
+                }
+                break;
+            case "Nivel 3":
+                if (ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] > level)
+                {
+                    ControlJuego.Nivel = ControlJuego.NivelActual.Nivel3;
+                    ControlJuego.state = ControlJuego.GameState.LevelSelect;
+                }
+                break;
+            case "Nivel 4":
+                if (ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] > level)
+                {
+                    ControlJuego.Nivel = ControlJuego.NivelActual.BossFinal;
+                    ControlJuego.state = ControlJuego.GameState.LevelSelect;
+                }
+                break;
+        }
+
+        }
 
 }

@@ -17,7 +17,7 @@ public class SaveEstateManager : MonoBehaviour
         CurrentGame = new PlayerStats();
         RutaXML = Application.persistentDataPath + "/Ninja";
         CurrentGame.UserName = ControlJuego.UserName;
-        CurrentGame.NivelesLogrados = ControlJuego.NivelesLogrados;
+        CurrentGame.NivelesLogrados = ControlJuego.NivelesPorDificultad;
         CurrentGame.Inventario = ControlJuego.Inventario;
     }
 

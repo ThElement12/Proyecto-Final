@@ -15,10 +15,10 @@ public class EnemyGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bigEnemyC = Mathf.RoundToInt(bigEnemyC * ControlJuego.NivelesLogrados / 2) < 1 ? 1 : Mathf.RoundToInt(bigEnemyC * ControlJuego.NivelesLogrados / 2);
-        normalEnemyC = Mathf.RoundToInt(normalEnemyC * ControlJuego.NivelesLogrados / 2) < 1 ? 1 : Mathf.RoundToInt(normalEnemyC * ControlJuego.NivelesLogrados / 2);
-        flyingEnemyC = Mathf.RoundToInt(flyingEnemyC * ControlJuego.NivelesLogrados / 2) < 1 ? 1 : Mathf.RoundToInt(flyingEnemyC * ControlJuego.NivelesLogrados / 2);
-        rangeEnemyC = Mathf.RoundToInt(rangeEnemyC * ControlJuego.NivelesLogrados / 2) < 1 ? 1 : Mathf.RoundToInt(rangeEnemyC * ControlJuego.NivelesLogrados / 2);
+        bigEnemyC = Mathf.RoundToInt(bigEnemyC * ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] / 2) < 1 ? 1 : Mathf.RoundToInt(bigEnemyC * ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] / 2);
+        normalEnemyC = Mathf.RoundToInt(normalEnemyC * ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] / 2) < 1 ? 1 : Mathf.RoundToInt(normalEnemyC * ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] / 2);
+        flyingEnemyC = Mathf.RoundToInt(flyingEnemyC * ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] / 2) < 1 ? 1 : Mathf.RoundToInt(flyingEnemyC * ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] / 2);
+        rangeEnemyC = Mathf.RoundToInt(rangeEnemyC * ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] / 2) < 1 ? 1 : Mathf.RoundToInt(rangeEnemyC * ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] / 2);
         player = GameObject.FindGameObjectWithTag("Player");
         EnemyCount = normalEnemyC + bigEnemyC + flyingEnemyC + rangeEnemyC;
     }

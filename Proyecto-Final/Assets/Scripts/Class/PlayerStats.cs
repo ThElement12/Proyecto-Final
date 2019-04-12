@@ -15,7 +15,7 @@ namespace Assets.Scripts.Class
         [DataMember]
         public string UserName { get; set; }
         [DataMember]
-        public int NivelesLogrados { get; set; }
+        public List<int> NivelesLogrados { get; set; }
         [DataMember]
         public List<Items> Inventario { get; set; }
     }

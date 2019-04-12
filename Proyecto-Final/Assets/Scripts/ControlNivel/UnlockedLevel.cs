@@ -9,16 +9,23 @@ public class UnlockedLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (ControlJuego.NivelesLogrados > level)
-        {
-            transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
-            transform.GetChild(1).gameObject.SetActive(false);
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (ControlJuego.NivelesPorDificultad[ControlJuego.indiceNivelActual] > level)
+        {
+            transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
+            transform.GetChild(1).gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+            transform.GetChild(1).gameObject.SetActive(true);
+
+        }
+
     }
 }

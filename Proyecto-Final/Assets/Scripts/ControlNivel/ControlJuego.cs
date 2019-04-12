@@ -18,10 +18,10 @@ public class ControlJuego : MonoBehaviour
     }
     public enum DificultadActual
     {
-        MuyFacil,//1
-        Facil,//2
-        Medio,//3
-        Dificil//4
+        MuyFacil,//0
+        Facil,//1
+        Medio,//2
+        Dificil//3
     }
    
     public enum GameState
@@ -30,6 +30,7 @@ public class ControlJuego : MonoBehaviour
         Playing,
         LevelPass
     }
+    
 
     public static List<Items> Inventario = new List<Items> { new Items("Armadura", 1), new Items("Pocion", 2), new Items("Lagrima", 1), new Items("Amuleto", 1) };
 
@@ -38,15 +39,18 @@ public class ControlJuego : MonoBehaviour
     public static GameState state;
     public static DificultadActual Dificultad;
     public static NivelActual Nivel;
-    public static int NivelesLogrados = 4, level = 1;
-    public static Nivel niveles = new Nivel()
+    public static int level = 1;
+    public static List<int> NivelesPorDificultad = new List<int> { 0, 0, 0, 0 };
     bool Pass = true;
     
     float playerLife;
+    public static int indiceNivelActual = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        
         Dificultad = DificultadActual.MuyFacil;
         //player = GameObject.FindGameObjectWithTag("Player");
         //Nivel = NivelActual.Nivel1;
@@ -59,67 +63,36 @@ public class ControlJuego : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (Dificultad)
-        {
-            case DificultadActual.MuyFacil:
-
-
-
-                break;
-            case DificultadActual.Facil:
-                break;
-            case DificultadActual.Medio:
-                break;
-            case DificultadActual.Dificil:
-                break;
-            default:
-                break;
-        }
-
-
-
-
         switch (state)
         {
-           
             case GameState.LevelSelect:
-                switch (Nivel)
+                switch (Dificultad)
                 {
-                    case NivelActual.Nivel1:
-                        state = GameState.Playing;
-                        level = 1;
-                        if (!Pass)
-                        {
-                            Pass = true;   
-                            SceneManager.LoadScene("Intro");
-                        }
-                        else
-                        {
-                            SceneManager.LoadScene("Principal");
-                        }
-                        ///Dificultad
+                    case DificultadActual.MuyFacil:
+                        SwitchDeNivel();
+                        indiceNivelActual = 0;
+                        player.GetComponent<CharacterMovement>().attackDamage = 100;
+                        
                         break;
-                    case NivelActual.Nivel2:
-                        level = 2;
-                        state = GameState.Playing;
-                        SceneManager.LoadScene("Principal");
-                        ///Dificultad
+                    case DificultadActual.Facil:
+                        SwitchDeNivel();
+                        indiceNivelActual = 1;
+                        player.GetComponent<CharacterMovement>().attackDamage = 75;
                         break;
-                    case NivelActual.Nivel3:
-                        level = 3;
-                        state = GameState.Playing;
-                        SceneManager.LoadScene("Principal");
-                        ///Dificultad
+                    case DificultadActual.Medio:
+                        SwitchDeNivel();
+                        indiceNivelActual = 2;
+                        player.GetComponent<CharacterMovement>().attackDamage = 50;
                         break;
-                    case NivelActual.BossFinal:
-                        level = 4;
-                        state = GameState.Playing;
-                        SceneManager.LoadScene("Principal");
-                        ///Dificultad
+                    case DificultadActual.Dificil:
+                        SwitchDeNivel();
+                        indiceNivelActual = 3;
+                        player.GetComponent<CharacterMovement>().attackDamage = 25;
                         break;
                     default:
                         break;
                 }
+
                 break;
             case GameState.Playing:
                 if (player.GetComponent<CharacterMovement>().Vida <= 0)
@@ -130,13 +103,58 @@ public class ControlJuego : MonoBehaviour
                 }
                 break;
             case GameState.LevelPass:
-                NivelesLogrados++;
+
+                NivelesPorDificultad[indiceNivelActual] = level + 1;
                 state = GameState.LevelSelect;
+                Nivel = NivelActual.Nivel0;
                 SceneManager.LoadScene("MapaPrincipal");
+                break;
+            default:
                 break;
         }
                     
            
+
+    }
+    void SwitchDeNivel()
+    {
+        switch (Nivel)
+        {
+            case NivelActual.Nivel1:
+                state = GameState.Playing;
+                level = 1;
+                if (!Pass)
+                {
+                    Pass = true;
+                    SceneManager.LoadScene("Intro");
+                }
+                else
+                {
+                    SceneManager.LoadScene("Principal");
+                }
+                ///Dificultad
+                break;
+            case NivelActual.Nivel2:
+                level = 2;
+                state = GameState.Playing;
+                SceneManager.LoadScene("Principal");
+                ///Dificultad
+                break;
+            case NivelActual.Nivel3:
+                level = 3;
+                state = GameState.Playing;
+                SceneManager.LoadScene("Principal");
+                ///Dificultad
+                break;
+            case NivelActual.BossFinal:
+                level = 4;
+                state = GameState.Playing;
+                SceneManager.LoadScene("Principal");
+                ///Dificultad
+                break;
+            default:
+                break;
+        }
 
     }
     
